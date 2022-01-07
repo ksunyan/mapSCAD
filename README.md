@@ -16,7 +16,7 @@ To simplify geometries, `jsonscad_builder.py` uses [an implementation of the Ram
 pip install rdp
 ```
 ### OpenSCAD
-OpenSCAD is open-source software for creating solid 3D CAD models. Since 3D modelling using OpenSCAD is purely script-based, the software is ideal for creating parametric 3D models. You can get OpenSCAD from the project's [Downloads page](https://openscad.org/downloads.html). 
+OpenSCAD is open-source software for creating solid 3D CAD models. Since OpenSCAD modeling is purely script-based, the software is ideal for creating parametric 3D models. You can get OpenSCAD from the project's [Downloads page](https://openscad.org/downloads.html). 
 
 See the [OpenSCAD User Manual](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual) for more information.
 
