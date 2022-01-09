@@ -61,7 +61,7 @@ This guide will explain the above `example.py` code. This guide will *not* provi
 For detailed information on `JsonScadBuilder` methods, see:
 For a guide on the 3D printing process, see:
 
-#### 1. Import the `json_scadbuilder` module and a create new `JsonScadBuilder` object
+#### 1. Import the `json_scadbuilder` module and create a new `JsonScadBuilder` object
 ```python
 import jsonscad_builder
 
@@ -99,6 +99,7 @@ bldr.bind_data_by_identifier('population', county_populations, 'COUNTY')
 OpenSCAD may occasionally generate the following error or warning messages:
 * `WARNING: Object may not be a valid 2-manifold and may need repair!`
 * `ERROR: The given mesh is not closed! Unable to convert to CGAL_Nef_Polyhedron.`
+
 These messages indicate that the model contains one or more bad faces. I will need to determine whether this issue is due to the RDP Algorithm or other problems in the code.
 
 ## Acknowledgements
