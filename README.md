@@ -7,6 +7,8 @@ The `jsonscad_builder.py` Python module provides programmers with methods for:
 * Adjusting 3D model parameters
 * Writing OpenSCAD code to a `.scad` file
 
+**Note:** This guide assumes that you are comfortable with Python syntax (especially Python lists) and that you have at least a basic understanding of 3D printing and computer-aided design (CAD) concepts.
+
 ## Getting Started
 Prior to using the `jsonscad_builder.py` module in your data visualization project, you will need to download and install some additional software.
 
@@ -27,7 +29,7 @@ Software for viewing `.stl` files may also be helpful. Free STL viewers are wide
 
 ## Example Code
 
-### Overview
+### Overview of `example.py`
 ```python
 import jsonscad_builder
 
@@ -35,6 +37,8 @@ bldr = jsonscad_builder.JsonScadBuilder()
 
 bldr.read_json_file('County_Boundaries_of_NJ.geojson')
 bldr.extract_features()
+
+bldr.simplify()
 
 county_populations = [
 		['ATLANTIC', 274534], ['BERGEN', 955732], ['BURLINGTON', 461860],
@@ -52,28 +56,49 @@ bldr.scale_heights([60000, 1000000],[3,12])
 bldr.write_scad_file('nj_populations.scad')
 ```
 ### Step-by-Step Guide
-#### 1. Import `json_scadbuilder` module and create new object
+This guide will explain the above `example.py` code. This guide will *not* provide a detailed description of all methods in the `JsonScadBuilder` class, nor will it include instructions on using OpenSCAD and slicer software to prepare the model for 3D printing.
+
+For detailed information on `JsonScadBuilder` methods, see:
+For a guide on the 3D printing process, see:
+
+#### 1. Import the `json_scadbuilder` module and a create new `JsonScadBuilder` object
 ```python
 import jsonscad_builder
 
 bldr = jsonscad_builder.JsonScadBuilder()
 ```
+In this example, the file `jsonscad_builder.py` is in the same directory as `example.py`. To create a new `JsonScadBuilder` object `bldr`, call the `JsonScadBuilder` class constructor. 
 
 #### 2. Read GeoJSON data
 ```python
 bldr.read_json_file('County_Boundaries_of_NJ.geojson')
 ```
+In this example, the file `County_Boundaries_of_NJ.geojson` is in the same directory as `example.py`. The `read_json_file()` method takes as a parameter the path to the file containing GeoJSON data. If the method parses the file contents successfully, then the `bldr` object stores the data in an `OrderedDict`.
+
+**Note:** The specified file can be any `.read()`-supporting text file or binary file containing a GeoJSON `FeatureCollection`; conventional file extensions are `.geojson` and `.json`. See [RFC 7946](https://datatracker.ietf.org/doc/html/rfc7946) for GeoJSON format standards. 
 
 #### 3. Extract GeoJSON features
 ```python
 bldr.extract_features()
 ```
+You *must* call the `.extract_features()` function. `extract_features()` looks up the `'features'` array in the GeoJSON data `OrderedDict`. If the stored GeoJSON data is a `FeatureCollection`, the `extract_features()` will generate no error messages.   
 
-#### 4. Bind statistical data to GeoJSON features
+#### 4. Simplify
+```python
+bldr.simplify()
+``` 
+To reduce the number of points in the final 3D model, call the `simplify()` method. This method uses the Ramer-Douglas-Peucker (RDP) Algorithm to calculate which points to preserve in the simplified geometries.  
+
+
+#### 5. Bind statistical data to GeoJSON features
 ```python
 bldr.bind_data_by_identifier('population', county_populations, 'COUNTY')
 ```
 
 ## Known Issues
+OpenSCAD may occasionally generate the following error or warning messages:
+* `WARNING: Object may not be a valid 2-manifold and may need repair!`
+* `ERROR: The given mesh is not closed! Unable to convert to CGAL_Nef_Polyhedron.`
+These messages indicate that the model contains one or more bad faces. I will need to determine whether this issue is due to the RDP Algorithm or other problems in the code.
 
 ## Acknowledgements
