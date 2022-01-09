@@ -25,7 +25,54 @@ Since choice of slicer software for 3D printing largely depends on personal pref
 
 Software for viewing `.stl` files may also be helpful. Free STL viewers are widely available online for download. 
 
-## Usage
+## Example Code
+
+### Overview
+```python
+import jsonscad_builder
+
+bldr = jsonscad_builder.JsonScadBuilder()
+
+bldr.read_json_file('County_Boundaries_of_NJ.geojson')
+bldr.extract_features()
+
+county_populations = [
+		['ATLANTIC', 274534], ['BERGEN', 955732], ['BURLINGTON', 461860],
+		['CAMDEN', 523485], ['CAPE MAY', 95263], ['CUMBERLAND', 154152],
+		['ESSEX', 863728], ['GLOUCESTER', 302294], ['HUDSON', 724854],
+		['HUNTERDON', 128947], ['MERCER', 387340], ['MIDDLESEX', 863162],
+		['MONMOUTH', 643615], ['MORRIS', 509285], ['OCEAN', 637229],
+		['PASSAIC', 524118], ['SALEM', 64837], ['SOMERSET', 345361],
+		['SUSSEX', 144221], ['UNION', 575345], ['WARREN', 109632]
+	]
+
+bldr.bind_data_by_identifier('population', county_populations, 'COUNTY')
+bldr.transform([-76.0, 38.6], 50, 1)
+bldr.scale_heights([60000, 1000000],[3,12])
+bldr.write_scad_file('nj_populations.scad')
+```
+### Step-by-Step Guide
+#### 1. Import `json_scadbuilder` module and create new object
+```python
+import jsonscad_builder
+
+bldr = jsonscad_builder.JsonScadBuilder()
+```
+
+#### 2. Read GeoJSON data
+```python
+bldr.read_json_file('County_Boundaries_of_NJ.geojson')
+```
+
+#### 3. Extract GeoJSON features
+```python
+bldr.extract_features()
+```
+
+#### 4. Bind statistical data to GeoJSON features
+```python
+bldr.bind_data_by_identifier('population', county_populations, 'COUNTY')
+```
 
 ## Known Issues
 
