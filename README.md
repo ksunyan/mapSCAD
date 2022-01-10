@@ -67,13 +67,13 @@ import jsonscad_builder
 
 bldr = jsonscad_builder.JsonScadBuilder()
 ```
-In this example, the file `jsonscad_builder.py` is in the same directory as `example.py`. To create a new `JsonScadBuilder` object `bldr`, call the `JsonScadBuilder` class constructor. 
+In this example, the file `jsonscad_builder.py` is in the same directory as `example.py`. To create and initialize a new `JsonScadBuilder` object `bldr`, call its constructor. 
 
 #### 2. Read GeoJSON data
 ```python
 bldr.read_json_file('County_Boundaries_of_NJ.geojson')
 ```
-In this example, the file `County_Boundaries_of_NJ.geojson` is in the same directory as `example.py`. The `read_json_file()` method takes as a parameter the path to the file containing GeoJSON data. If the method parses the file contents successfully, then the `bldr` object stores the data in an `OrderedDict`.
+In this example, the file `County_Boundaries_of_NJ.geojson` is in the same directory as `example.py`. The `read_json_file()` method takes the path to the file containing GeoJSON data as a parameter. If the method parses the file contents successfully, then the `bldr` object stores the data in an `OrderedDict`.
 
 **Note:** The specified file can be any `.read()`-supporting text file or binary file containing a GeoJSON `FeatureCollection`; conventional file extensions are `.geojson` and `.json`. See [RFC 7946](https://datatracker.ietf.org/doc/html/rfc7946) for GeoJSON format standards. 
 
@@ -87,12 +87,33 @@ You *must* call the `.extract_features()` function. `extract_features()` looks u
 ```python
 bldr.simplify()
 ``` 
-To reduce the number of points in the final 3D model, call the `simplify()` method. This method uses the Ramer-Douglas-Peucker (RDP) Algorithm to calculate which points to preserve in the simplified geometries.  
+To reduce the number of points in the final 3D model, call the `simplify()` method. This method uses the Ramer-Douglas-Peucker (RDP) Algorithm to calculate which points to preserve in the simplified geometries. `simplify()` has one optional parameter `eps`, which is the epsilon value in the RDP Algorithm. 
 
 
 #### 5. Bind statistical data to GeoJSON features
 ```python
 bldr.bind_data_by_identifier('population', county_populations, 'COUNTY')
+```
+The method `bind_data_by_identifier()` takes a list of data points (dataset) as one of its parameters. Each data point must be a key-value pair in list form (see the list `county_populations` in `example.py`). `bind_data_by_identifier()` attempts to add each data point in the dataset to its corresponding GeoJSON feature. To match data points to features, specify the member that you would like use as a unique identifier for each feature. In this example, the `'COUNTY` member (contained within each feature's `properties` member) is the chosen identifier.
+
+**Note:** You can use an alternative method, `bind_data()`, to add data points *without* needing to specify an identifier. Instead, `bind_data()` requires that the data points are in the same order as features stored in `bldr`'s list of features. You should provide a flat list of values as the dataset.  
+
+#### 6. Scale and translate geometries using `transform()`
+```python
+bldr.transform([-76.0, 38.6], 50)
+````
+In this example, the `transform()` method:
+* Sets the coordinate `[-76.0, 38.6]` (Longitude: 76.0 W, Latitude: 38.6 N) as the origin (`[0,0,0]` in the OpenSCAD coordinate system) for the 3D model. 
+* Scales the geometries to a reasonable size. Since the geographic area covered by the GeoJSON data is small (roughly 2.4 degrees of latitude), `transform()` multiplies the distances between points by the parameter `scale_factor`.
+
+#### 7. Scale extrusion heights using `scale_heights()`
+```python
+bldr.scale_heights([60000, 1000000],[3,12])
+```
+
+#### 8. Write code to an OpenSCAD file
+```python
+bldr.write_scad_file('nj_populations.scad')
 ```
 
 ## Known Issues

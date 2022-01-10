@@ -24,7 +24,7 @@ class JsonScadBuilder:
         return [self.scale_factor * (pair[0]-self.origin[0]) + self.union_eps, 
         self.scale_factor * (pair[1]-self.origin[1]) + self.union_eps]
     
-    # METHODS
+    # API METHODS
     def read_json(self, str):
         self.raw_json_data = json.loads(str)
         print(status_msg['end_read'] + str(self.raw_json_data.keys()))
@@ -184,8 +184,6 @@ class JsonScadBuilder:
                 code += 'polygon(points_' + str(count) + ');\n'
                 count += 1
 
-                debug_num_coords += len(feature['geometry']['coordinates'][0])
-
             # Handle multipolygons, which store coordinate data
             # one layer deeper than polygons
             elif(feature['geometry']['type'] == "MultiPolygon"):
@@ -206,12 +204,11 @@ class JsonScadBuilder:
                     code += 'polygon(points_' + str(count) + ');\n'
                     count += 1
 
-                    debug_num_coords += len(polygon[0])
-
         with open(filepath,'w') as f:
-            f.write(code)
+            char_out = f.write(code)
             
-        print(debug_num_coords)
+        print(status_msg['end_wrte'] + filepath + 
+        ", characters written: " + str(char_out))
         
 # ERROR AND STATUS MESSAGES
 error_msg = {
@@ -237,5 +234,7 @@ status_msg = {
     'end_bind' : ("SUCCESS    "
     "Finished data binding, number of features with bound data: "),
     'end_scle' : ("SUCCESS    "
-    "Finished height scaling, [min, max] heights: ")
+    "Finished height scaling, [min, max] heights: "),
+    'end_wrte' : ("SUCCESS    "
+    "Finished writing to file: ")
 }
