@@ -117,7 +117,7 @@ bldr.scale_heights([60000, 1000000],[3,12])
 ```python
 bldr.write_scad_file('nj_populations.scad')
 ```
-Finally, use `write_scad_file()` to generate an OpenSCAD file containing your 3D model. In this example, `write_scad_file()` creates a new file `nj_populations.scad` in the same directory as `example.py`.
+Finally, use `write_scad_file()` to generate an OpenSCAD file containing your 3D model. In this example, `write_scad_file()` creates a new file `nj_populations.scad` in the same directory as `example.py`. Now you can view the 3D model in OpenSCAD!
 
 ## Known Issues
 OpenSCAD may occasionally generate the following error or warning messages:
@@ -126,4 +126,20 @@ OpenSCAD may occasionally generate the following error or warning messages:
 
 These messages indicate that the model contains one or more bad faces. I will need to determine whether this issue is due to the RDP Algorithm or other problems in the code.
 
-## Acknowledgements
+## Project Rationale
+Data visualization is powerful — it gives viewers the power to understand, analyze, or simply enjoy data. Conventional data visualization methods are confined to a flat surface, be it a monitor or a piece of paper. In a typical choropleth map, each geographical area's color depends on that area's value for some statistical variable that the map visualizes.
+
+According to (Munzner, 2015), 3D-choropleth maps typically have a number of issues:
+* Human length perception ability is accurate only for planar spatial position. Our ability to perceive depth is not nearly as accurate.
+* Some 3D visualizations occlude important information. For instance, a particularly tall feature can prevent a viewer from seeing shorter features behind it.
+* Perspective distortion (closer items appear larger, farther items appear smaller) makes comparing heights of features difficult. 
+* In the real world, shadows and shading convey important information about depth, but a 3D visualization on screen or on paper cannot incorporate shadows or shading because doing so could distract the viewer or interfere with the coloring of features. 
+
+However, these problems are the result of displaying 3D models in 2D space. On the contrary, the viewer of a tangible 3D model can quickly manipulate it, adjusting their view as they want. Thus, perspective distortion and occlusion are no longer significant problems. Lighting in the viewer's surroundings also casts natural shadows on and around the physical model.
+
+3D printing technology enables creators of data visualizations to craft eye-catching pieces. A single 3D printed choropleth map, sitting on a desk, shelf, or windowsill, can prompt many meaningful discussions of its data. 
+
+The goal of the mapSCAD project is to spark many of these conversations!
+
+## References
+* Munzner, T. (2014). Visualization Analysis and Design. United Kingdom: CRC Press.
