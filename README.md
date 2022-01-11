@@ -139,7 +139,7 @@ However, these problems are the result of displaying 3D models in 2D space. On t
 
 3D printing technology enables creators of data visualizations to craft eye-catching pieces. A single 3D printed choropleth map, sitting on a desk, shelf, or windowsill, can prompt many meaningful discussions of its data. 
 
-The goal of the mapSCAD project is to spark many of these conversations!
+The goal of the MapSCAD project is to spark many of these conversations!
 
 ## References
 * Munzner, T. (2014). Visualization Analysis and Design. United Kingdom: CRC Press.
