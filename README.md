@@ -59,6 +59,7 @@ bldr.write_scad_file('nj_populations.scad')
 This guide will explain the above `example.py` code. This guide will *not* provide a detailed description of all methods in the `JsonScadBuilder` class, nor will it include instructions on using OpenSCAD and slicer software to prepare the model for 3D printing.
 
 For detailed information on `JsonScadBuilder` methods, see:
+
 For a guide on the 3D printing process, see:
 
 #### 1. Import the `json_scadbuilder` module and create a new `JsonScadBuilder` object
@@ -81,7 +82,7 @@ In this example, the file `County_Boundaries_of_NJ.geojson` is in the same direc
 ```python
 bldr.extract_features()
 ```
-You *must* call the `.extract_features()` function. `extract_features()` looks up the `'features'` array in the GeoJSON data `OrderedDict`. If the stored GeoJSON data is a `FeatureCollection`, the `extract_features()` will generate no error messages.   
+You *must* call the `.extract_features()` function. `extract_features()` looks up the `'features'` array in the `OrderedDict` containing GeoJSON data. If the stored GeoJSON data is a `FeatureCollection`, the `extract_features()` will generate no error messages. In this example, each GeoJSON feature represents a New Jersey county.    
 
 #### 4. Simplify
 ```python
@@ -110,11 +111,13 @@ In this example, the `transform()` method:
 ```python
 bldr.scale_heights([60000, 1000000],[3,12])
 ```
+`scale_heights()` calculates each feature's extrusion height using the feature's bound statistical data value (which, from Step 5, is the population of the county). Provide an appropriate domain and range; the domain `[60000, 1000000]` covers population values for all New Jersey counties, and the range `[3, 12]` yields visually appealing height values for this 3D model.
 
 #### 8. Write code to an OpenSCAD file
 ```python
 bldr.write_scad_file('nj_populations.scad')
 ```
+Finally, use `write_scad_file()` to generate an OpenSCAD file containing your 3D model. In this example, `write_scad_file()` creates a new file `nj_populations.scad` in the same directory as `example.py`.
 
 ## Known Issues
 OpenSCAD may occasionally generate the following error or warning messages:
