@@ -129,7 +129,7 @@ These messages indicate that the model contains one or more bad faces. I will ne
 ## Project Rationale
 Data visualization is powerful — it gives viewers the power to understand, analyze, or simply enjoy data. Conventional data visualization methods are confined to a flat surface, be it a monitor or a piece of paper. In a typical choropleth map, each geographical area's color depends on that area's value for some statistical variable that the map visualizes.
 
-According to (Munzner, 2015), 3D-choropleth maps typically have a number of issues:
+According to (Munzner, 2014), 3D-choropleth maps typically have a number of issues:
 * Human length perception ability is accurate only for planar spatial position. Our ability to perceive depth is not nearly as accurate.
 * Some 3D visualizations occlude important information. For instance, a particularly tall feature can prevent a viewer from seeing shorter features behind it.
 * Perspective distortion (closer items appear larger, farther items appear smaller) makes comparing heights of features difficult. 
