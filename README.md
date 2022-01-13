@@ -51,7 +51,8 @@ county_populations = [
 	]
 
 bldr.bind_data_by_identifier('population', county_populations, 'COUNTY')
-bldr.transform([-76.0, 38.6], 50, 1)
+bldr.transform([-76.0, 38.6], 50)
+bldr.offset(0.2)
 bldr.scale_heights([60000, 1000000],[3,12])
 bldr.write_scad_file('nj_populations.scad')
 ```
@@ -107,13 +108,19 @@ In this example, the `transform()` method:
 * Sets the coordinate `[-76.0, 38.6]` (Longitude: 76.0 W, Latitude: 38.6 N) as the origin (`[0,0,0]` in the OpenSCAD coordinate system) for the 3D model. 
 * Scales the geometries to a reasonable size. Since the geographic area covered by the GeoJSON data is small (roughly 2.4 degrees of latitude), `transform()` multiplies the distances between points by the parameter `scale_factor`.
 
-#### 7. Scale extrusion heights using `scale_heights()`
+#### 7. Eliminate gaps between features using `offset()`
+```python
+bldr.offset(0.2)
+```
+The positive `offset_data` value signals `write_scad_file()` to draw all polygon geometries in OpenSCAD with sides offset by `offset_delta` from the original polygon geometries stored in `features`. Thus, in the OpenSCAD model, features will overlap by a small amount. These overlaps are good because they eliminate unwanted gaps between features.
+
+#### 8. Scale extrusion heights using `scale_heights()`
 ```python
 bldr.scale_heights([60000, 1000000],[3,12])
 ```
 `scale_heights()` calculates each feature's extrusion height using the feature's bound statistical data value (which, from Step 5, is the population of the county). Provide an appropriate domain and range; the domain `[60000, 1000000]` covers population values for all New Jersey counties, and the range `[3, 12]` yields visually appealing height values for this 3D model.
 
-#### 8. Write code to an OpenSCAD file
+#### 9. Write code to an OpenSCAD file
 ```python
 bldr.write_scad_file('nj_populations.scad')
 ```
