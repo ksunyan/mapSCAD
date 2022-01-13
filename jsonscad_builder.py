@@ -32,10 +32,14 @@ class JsonScadBuilder:
 
     # CONSTANTS
     DEFAULT_EXTRUDE_HEIGHT = 2
+    """Default extrusion height if there does not exist a bound data value
+    for a feature."""
     DEFAULT_RDP_EPSILON = 0.01
+    """Default epsilon value for the Ramer-Douglas-Peucker (RDP) Algorithm."""
 
-    color_bank = ['Red', 'Green', 'Blue', 'Brown',
+    COLOR_BANK = ['Red', 'Green', 'Blue', 'Brown',
                 'Purple', 'Gold', 'Orange']
+    """List of avaliable colors in color preview mode."""
 
     # CONSTRUCTOR
     def __init__(self):
@@ -50,7 +54,7 @@ class JsonScadBuilder:
         self.is_colored = False
 
     # HELPER FUNCTIONS
-    def transform_helper(self, pair):
+    def _transform_helper(self, pair):
         return [self.scale_factor * (pair[0]-self.origin[0]), 
         self.scale_factor * (pair[1]-self.origin[1])]
     
@@ -100,7 +104,7 @@ class JsonScadBuilder:
         Applies Ramer-Douglas-Peucker (RDP) Algorithm to all polygons 
         contained in the instance attribute `features`.  
 
-        Args: 
+        Args:
             eps: The epsilon parameter of the RDP algorithm.
         """
         assert self.features, error_msg['emp_feat']
@@ -144,7 +148,7 @@ class JsonScadBuilder:
         `scale_factor`. Multiplication of coordinates by `scale_factor` occurs
         after the translation.
         
-        Args: 
+        Args:
             origin: A list of two elements `[long,lat]` in decimal form.  
             scale_factor: A real number that will multiply the x and y 
                 coordinates of all points. 
@@ -160,7 +164,7 @@ class JsonScadBuilder:
                 # index 0 contains exterior linear ring
                 coords = feature['geometry']['coordinates'][0] 
                 feature['geometry']['coordinates'][0] = list(
-                    map(self.transform_helper, coords))
+                    map(self._transform_helper, coords))
 
             # Handle multipolygons, which store coordinate data
             # one layer deeper than polygons
@@ -181,7 +185,7 @@ class JsonScadBuilder:
         geometries stored in `features`. Setting a positive `offset_delta`
         can eliminate undesirable gaps between features in the model. 
 
-        Args: 
+        Args:
             delta: The offset distance.
         """
         self.offset_delta = delta
@@ -196,7 +200,7 @@ class JsonScadBuilder:
         The dataset `data` should be a list that has data points in the same 
         order as features in the list `features`.
 
-        Args: 
+        Args:
             data_key_name: String containing the name of the statistical 
                 variable.
             data: A list containing numerical data values. 
