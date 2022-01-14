@@ -1,8 +1,8 @@
 """A module to create 3D choropleth maps in OpenSCAD from GeoJSON data.
 
-Copyright: 
+Copyright:
     Kenneth Yan 2022
-License: 
+License:
     MIT License; see LICENSE.txt
 """
 

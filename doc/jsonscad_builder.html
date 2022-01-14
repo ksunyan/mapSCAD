@@ -1,0 +1,1649 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="pdoc 8.2.0" />
+    <title>jsonscad_builder API documentation</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%2244.5%202.5%2015%2015%22%3E%3Cpath%20d%3D%22M49.351%2021.041c-.233-.721-.546-2.408-.772-4.076-.042-.09-.067-.187-.046-.288-.166-1.347-.277-2.625-.241-3.351-1.378-1.008-2.271-2.586-2.271-4.362%200-.976.272-1.935.788-2.774.057-.094.122-.18.184-.268-.033-.167-.052-.339-.052-.516%200-1.477%201.202-2.679%202.679-2.679.791%200%201.496.352%201.987.9a6.3%206.3%200%200%201%201.001.029c.492-.564%201.207-.929%202.012-.929%201.477%200%202.679%201.202%202.679%202.679a2.65%202.65%200%200%201-.269%201.148c.383.747.595%201.572.595%202.41%200%202.311-1.507%204.29-3.635%205.107.037.699.147%202.27.423%203.294l.137.461c.156%202.136-4.612%205.166-5.199%203.215zm.127-4.919a4.78%204.78%200%200%200%20.775-.584c-.172-.115-.505-.254-.88-.378zm.331%202.302l.828-.502c-.202-.143-.576-.328-.984-.49zm.45%202.157l.701-.403c-.214-.115-.536-.249-.891-.376l.19.779zM49.13%204.141c0%20.152.123.276.276.276s.275-.124.275-.276-.123-.276-.276-.276-.275.124-.275.276zm.735-.389a1.15%201.15%200%200%201%20.314.783%201.16%201.16%200%200%201-1.162%201.162c-.457%200-.842-.27-1.032-.653-.026.117-.042.238-.042.362a1.68%201.68%200%200%200%201.679%201.679%201.68%201.68%200%200%200%201.679-1.679c0-.843-.626-1.535-1.436-1.654zm3.076%201.654a1.68%201.68%200%200%200%201.679%201.679%201.68%201.68%200%200%200%201.679-1.679c0-.037-.009-.072-.011-.109-.21.3-.541.508-.935.508a1.16%201.16%200%200%201-1.162-1.162%201.14%201.14%200%200%201%20.474-.912c-.015%200-.03-.005-.045-.005-.926.001-1.679.754-1.679%201.68zm1.861-1.265c0%20.152.123.276.276.276s.275-.124.275-.276-.123-.276-.276-.276-.275.124-.275.276zm1.823%204.823c0-.52-.103-1.035-.288-1.52-.466.394-1.06.64-1.717.64-1.144%200-2.116-.725-2.499-1.738-.383%201.012-1.355%201.738-2.499%201.738-.867%200-1.631-.421-2.121-1.062-.307.605-.478%201.267-.478%201.942%200%202.486%202.153%204.51%204.801%204.51s4.801-2.023%204.801-4.51zm-3.032%209.156l-.146-.492c-.276-1.02-.395-2.457-.444-3.268a6.11%206.11%200%200%201-1.18.115%206.01%206.01%200%200%201-2.536-.562l.006.175c.802.215%201.848.612%202.021%201.25.079.295-.021.601-.274.837l-.598.501c.667.304%201.243.698%201.311%201.179.02.144.022.507-.393.787l-.564.365c1.285.521%201.361.96%201.381%201.126.018.142.011.496-.427.746l-.854.489c.064-1.19%201.985-2.585%202.697-3.248zM49.34%209.925c0-.667%201-.667%201%200%200%20.653.818%201.205%201.787%201.205s1.787-.552%201.787-1.205c0-.667%201-.667%201%200%200%201.216-1.25%202.205-2.787%202.205s-2.787-.989-2.787-2.205zm-.887-7.633c-.093.077-.205.114-.317.114a.5.5%200%200%201-.318-.886L49.183.397a.5.5%200%200%201%20.703.068.5.5%200%200%201-.069.703zm7.661-.065c-.086%200-.173-.022-.253-.068l-1.523-.893c-.575-.337-.069-1.2.506-.863l1.523.892a.5.5%200%200%201%20.179.685c-.094.158-.261.247-.432.247z%22%20fill%3D%22%233bb300%22/%3E%3C/svg%3E"/>
+
+
+<style>/*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25}hr:not([size]){height:1px}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media (min-width:1200px){h3{font-size:1.75rem}}h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){h4{font-size:1.5rem}}h5{font-size:1.25rem}h6{font-size:1rem}p{margin-top:0;margin-bottom:1rem}abbr[data-bs-original-title],abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}dl,ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-bottom:.5rem;margin-left:0}blockquote{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:.875em}mark{padding:.2em;background-color:#fcf8e3}sub,sup{position:relative;font-size:.75em;line-height:0;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#0d6efd;text-decoration:underline}a:hover{color:#0a58ca}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em;direction:ltr;unicode-bidi:bidi-override}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}pre code{font-size:inherit;color:inherit;word-break:normal}code{font-size:.875em;color:#d63384;word-wrap:break-word}a>code{color:inherit}kbd{padding:.2rem .4rem;font-size:.875em;color:#fff;background-color:#212529;border-radius:.2rem}kbd kbd{padding:0;font-size:1em;font-weight:700}figure{margin:0 0 1rem}img,svg{vertical-align:middle}table{caption-side:bottom;border-collapse:collapse}caption{padding-top:.5rem;padding-bottom:.5rem;color:#6c757d;text-align:left}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}select:disabled{opacity:1}[list]::-webkit-calendar-picker-indicator{display:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:textfield}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}output{display:inline-block}iframe{border:0}summary{display:list-item;cursor:pointer}progress{vertical-align:baseline}[hidden]{display:none!important}</style>
+<style>/*! pygments syntax highlighting */pre{line-height:125%;}td.linenos pre{color:#000000; background-color:#f0f0f0; padding-left:5px; padding-right:5px;}span.linenos{color:#000000; background-color:#f0f0f0; padding-left:5px; padding-right:5px;}td.linenos pre.special{color:#000000; background-color:#ffffc0; padding-left:5px; padding-right:5px;}span.linenos.special{color:#000000; background-color:#ffffc0; padding-left:5px; padding-right:5px;}.pdoc .hll{background-color:#ffffcc}.pdoc{background:#f8f8f8;}.pdoc .c{color:#408080; font-style:italic}.pdoc .err{border:1px solid #FF0000}.pdoc .k{color:#008000; font-weight:bold}.pdoc .o{color:#666666}.pdoc .ch{color:#408080; font-style:italic}.pdoc .cm{color:#408080; font-style:italic}.pdoc .cp{color:#BC7A00}.pdoc .cpf{color:#408080; font-style:italic}.pdoc .c1{color:#408080; font-style:italic}.pdoc .cs{color:#408080; font-style:italic}.pdoc .gd{color:#A00000}.pdoc .ge{font-style:italic}.pdoc .gr{color:#FF0000}.pdoc .gh{color:#000080; font-weight:bold}.pdoc .gi{color:#00A000}.pdoc .go{color:#888888}.pdoc .gp{color:#000080; font-weight:bold}.pdoc .gs{font-weight:bold}.pdoc .gu{color:#800080; font-weight:bold}.pdoc .gt{color:#0044DD}.pdoc .kc{color:#008000; font-weight:bold}.pdoc .kd{color:#008000; font-weight:bold}.pdoc .kn{color:#008000; font-weight:bold}.pdoc .kp{color:#008000}.pdoc .kr{color:#008000; font-weight:bold}.pdoc .kt{color:#B00040}.pdoc .m{color:#666666}.pdoc .s{color:#BA2121}.pdoc .na{color:#7D9029}.pdoc .nb{color:#008000}.pdoc .nc{color:#0000FF; font-weight:bold}.pdoc .no{color:#880000}.pdoc .nd{color:#AA22FF}.pdoc .ni{color:#999999; font-weight:bold}.pdoc .ne{color:#D2413A; font-weight:bold}.pdoc .nf{color:#0000FF}.pdoc .nl{color:#A0A000}.pdoc .nn{color:#0000FF; font-weight:bold}.pdoc .nt{color:#008000; font-weight:bold}.pdoc .nv{color:#19177C}.pdoc .ow{color:#AA22FF; font-weight:bold}.pdoc .w{color:#bbbbbb}.pdoc .mb{color:#666666}.pdoc .mf{color:#666666}.pdoc .mh{color:#666666}.pdoc .mi{color:#666666}.pdoc .mo{color:#666666}.pdoc .sa{color:#BA2121}.pdoc .sb{color:#BA2121}.pdoc .sc{color:#BA2121}.pdoc .dl{color:#BA2121}.pdoc .sd{color:#BA2121; font-style:italic}.pdoc .s2{color:#BA2121}.pdoc .se{color:#BB6622; font-weight:bold}.pdoc .sh{color:#BA2121}.pdoc .si{color:#BB6688; font-weight:bold}.pdoc .sx{color:#008000}.pdoc .sr{color:#BB6688}.pdoc .s1{color:#BA2121}.pdoc .ss{color:#19177C}.pdoc .bp{color:#008000}.pdoc .fm{color:#0000FF}.pdoc .vc{color:#19177C}.pdoc .vg{color:#19177C}.pdoc .vi{color:#19177C}.pdoc .vm{color:#19177C}.pdoc .il{color:#666666}</style>
+<style>/*! pdoc */:root{--pdoc-background:#fff;}.pdoc{--text:#212529;--muted:#6c757d;--link:#3660a5;--link-hover:#1659c5;--code:#f7f7f7;--active:#fff598;--accent:#eee;--accent2:#c1c1c1;--nav-hover:rgba(255, 255, 255, 0.5);--name:#0066BB;--def:#008800;--annotation:#007020;}body{background-color:var(--pdoc-background);}html, body{width:100%;height:100%;}@media (max-width:769px){#navtoggle{cursor:pointer;position:absolute;width:50px;height:40px;top:1rem;right:1rem;border-color:var(--text);color:var(--text);display:flex;opacity:0.8;}#navtoggle:hover{opacity:1;}#togglestate + div{display:none;}#togglestate:checked + div{display:inherit;}main, header{padding:2rem 3vw;}.git-button{display:none !important;}nav input[type="search"]:valid ~ *{display:none !important;}}@media (min-width:770px){:root{--sidebar-width:clamp(12.5rem, 28vw, 22rem);}nav{position:fixed;overflow:auto;height:100vh;width:var(--sidebar-width);}main, header{padding:3rem 2rem 3rem calc(var(--sidebar-width) + 3rem);width:calc(54rem + var(--sidebar-width));max-width:100%;}#navtoggle{display:none;}}#togglestate{display:none;}nav.pdoc{--pad:1.75rem;--indent:1.5rem;background-color:var(--accent);border-right:1px solid var(--accent2);box-shadow:0 0 20px rgba(50, 50, 50, .2) inset;padding:0 0 0 var(--pad);overflow-wrap:anywhere;scrollbar-width:thin; scrollbar-color:var(--accent2) transparent }nav.pdoc::-webkit-scrollbar{width:.4rem; }nav.pdoc::-webkit-scrollbar-thumb{background-color:var(--accent2); }nav.pdoc > div{padding:var(--pad) 0;}nav.pdoc .module-list-button{display:inline-flex;align-items:center;color:var(--text);border-color:var(--muted);margin-bottom:1rem;}nav.pdoc .module-list-button:hover{border-color:var(--text);}nav.pdoc input[type=search]{display:block;outline-offset:0;width:calc(100% - var(--pad));}nav.pdoc .logo{max-width:calc(100% - var(--pad));max-height:35vh;display:block;margin:0 auto 1rem;transform:translate(calc(-.5 * var(--pad)), 0);}nav.pdoc ul{list-style:none;padding-left:0;}nav.pdoc li{display:block;margin:0;padding:.2rem 0 .2rem var(--indent);transition:all 100ms;}nav.pdoc > div > ul > li{padding-left:0;}nav.pdoc li:hover{background-color:var(--nav-hover);}nav.pdoc a, nav.pdoc a:hover{color:var(--text);}nav.pdoc a{display:block;}nav.pdoc > h2:first-of-type{margin-top:1.5rem;}nav.pdoc .class:before{content:"class ";color:var(--muted);}nav.pdoc .function:after{content:"()";color:var(--muted);}nav.pdoc footer:before{content:"";display:block;width:calc(100% - var(--pad));border-top:solid var(--accent2) 1px;margin-top:1.5rem;padding-top:.5rem;}nav.pdoc footer{font-size:small;}html, main{scroll-behavior:smooth;}.pdoc{color:var(--text);box-sizing:border-box;line-height:1.5;background:none;}.pdoc .pdoc-button{display:inline-block;border:solid black 1px;border-radius:2px;font-size:.75rem;padding:calc(0.5em - 1px) 1em;transition:100ms all;}.pdoc .visually-hidden{position:absolute !important;width:1px !important;height:1px !important;padding:0 !important;margin:-1px !important;overflow:hidden !important;clip:rect(0, 0, 0, 0) !important;white-space:nowrap !important;border:0 !important;}.pdoc h1, .pdoc h2, .pdoc h3{font-weight:300;margin:.3em 0;padding:.2em 0;}.pdoc a{text-decoration:none;color:var(--link);}.pdoc a:hover{color:var(--link-hover);}.pdoc blockquote{margin-left:2rem;}.pdoc pre{background-color:var(--code);border-top:1px solid var(--accent2);border-bottom:1px solid var(--accent2);margin-bottom:1em;padding:.5rem 0 .5rem .5rem;overflow-x:auto;}.pdoc code{color:var(--text);padding:.2em .4em;margin:0;font-size:85%;background-color:var(--code);border-radius:6px;}.pdoc a > code{color:inherit;}.pdoc pre > code{display:inline-block;font-size:inherit;background:none;border:none;padding:0;}.pdoc .modulename{margin-top:0;font-weight:bold;}.pdoc .modulename a{color:var(--link);transition:100ms all;}.pdoc .git-button{float:right;border:solid var(--link) 1px;}.pdoc .git-button:hover{background-color:var(--link);color:var(--pdoc-background);}.pdoc details{--shift:-40px;text-align:right;margin-top:var(--shift);margin-bottom:calc(0px - var(--shift));clear:both;filter:opacity(1);}.pdoc details:not([open]){height:0;overflow:visible;}.pdoc details > summary{font-size:.75rem;cursor:pointer;color:var(--muted);border-width:0;padding:0 .7em;display:inline-block;display:inline list-item;user-select:none;}.pdoc details > summary:focus{outline:0;}.pdoc details > div{margin-top:calc(0px - var(--shift) / 2);text-align:left;}.pdoc .docstring{margin-bottom:1.5rem;}.pdoc > section:first-of-type > .docstring{margin-bottom:3rem;}.pdoc .docstring pre{margin-left:1em;margin-right:1em;}.pdoc h1:target,.pdoc h2:target,.pdoc h3:target,.pdoc h4:target,.pdoc h5:target,.pdoc h6:target{background-color:var(--active);box-shadow:-1rem 0 0 0 var(--active);}.pdoc div:target > .attr,.pdoc section:target > .attr,.pdoc dd:target > a{background-color:var(--active);}.pdoc .attr:hover{filter:contrast(0.95);}.pdoc .headerlink{position:absolute;width:0;margin-left:-1.5rem;line-height:1.4rem;font-size:1.5rem;font-weight:normal;transition:all 100ms ease-in-out;opacity:0;}.pdoc .attr > .headerlink{margin-left:-2.5rem;}.pdoc *:hover > .headerlink,.pdoc *:target > .attr > .headerlink{opacity:1;}.pdoc .attr{display:block;color:var(--text);margin:1rem 0 .5rem;padding:.4rem 5rem .4rem 1rem;background-color:var(--accent);}.pdoc .classattr{margin-left:2rem;}.pdoc .name{color:var(--name);font-weight:bold;}.pdoc .def{color:var(--def);font-weight:bold;}.pdoc .signature{white-space:pre-wrap;}.pdoc .annotation{color:var(--annotation);}.pdoc .inherited{margin-left:2rem;}.pdoc .inherited dt{font-weight:700;}.pdoc .inherited dt, .pdoc .inherited dd{display:inline;margin-left:0;margin-bottom:.5rem;}.pdoc .inherited dd:not(:last-child):after{content:", ";}.pdoc .inherited .class:before{content:"class ";}.pdoc .inherited .function a:after{content:"()";}.pdoc .search-result .docstring{overflow:auto;max-height:25vh;}.pdoc .search-result.focused > .attr{background-color:var(--active);}.pdoc .attribution{margin-top:2rem;display:block;opacity:0.5;transition:all 200ms;filter:grayscale(100%);}.pdoc .attribution:hover{opacity:1;filter:grayscale(0%);}.pdoc .attribution img{margin-left:5px;height:35px;vertical-align:middle;width:70px;transition:all 200ms;}.pdoc table{display:block;width:max-content;max-width:100%;overflow:auto;margin-bottom:1rem;}.pdoc table th{font-weight:600;}.pdoc table th, .pdoc table td{padding:6px 13px;border:1px solid var(--accent2);}</style>
+</head>
+<body>        <nav class="pdoc">
+            <label id="navtoggle" for="togglestate" class="pdoc-button"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke-linecap='round' stroke="currentColor" stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg></label>
+            <input id="togglestate" type="checkbox">
+            <div>
+
+
+
+                    <h2>Contents</h2>
+                    <ul>
+  <li><a href="#copyright">Copyright</a></li>
+  <li><a href="#license">License</a></li>
+</ul>
+
+
+
+                    <h2>API Documentation</h2>
+                        <ul class="memberlist">
+            <li>
+                    <a class="class" href="#JsonScadBuilder">JsonScadBuilder</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#JsonScadBuilder.__init__">JsonScadBuilder</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#JsonScadBuilder.DEFAULT_EXTRUDE_HEIGHT">DEFAULT_EXTRUDE_HEIGHT</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#JsonScadBuilder.DEFAULT_RDP_EPSILON">DEFAULT_RDP_EPSILON</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#JsonScadBuilder.COLOR_BANK">COLOR_BANK</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#JsonScadBuilder.read_json">read_json</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#JsonScadBuilder.read_json_file">read_json_file</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#JsonScadBuilder.extract_features">extract_features</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#JsonScadBuilder.simplify">simplify</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#JsonScadBuilder.transform">transform</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#JsonScadBuilder.offset">offset</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#JsonScadBuilder.bind_data">bind_data</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#JsonScadBuilder.bind_data_by_identifier">bind_data_by_identifier</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#JsonScadBuilder.scale_heights">scale_heights</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#JsonScadBuilder.color_preview">color_preview</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#JsonScadBuilder.write_scad_file">write_scad_file</a>
+                        </li>
+                </ul>
+
+            </li>
+    </ul>
+
+
+
+                    <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev">
+                        built with <span class="visually-hidden">pdoc</span><img
+                            alt="pdoc logo"
+                            src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20role%3D%22img%22%20aria-label%3D%22pdoc%20logo%22%20width%3D%22300%22%20height%3D%22150%22%20viewBox%3D%22-1%200%2060%2030%22%3E%3Ctitle%3Epdoc%3C/title%3E%3Cpath%20d%3D%22M29.621%2021.293c-.011-.273-.214-.475-.511-.481a.5.5%200%200%200-.489.503l-.044%201.393c-.097.551-.695%201.215-1.566%201.704-.577.428-1.306.486-2.193.182-1.426-.617-2.467-1.654-3.304-2.487l-.173-.172a3.43%203.43%200%200%200-.365-.306.49.49%200%200%200-.286-.196c-1.718-1.06-4.931-1.47-7.353.191l-.219.15c-1.707%201.187-3.413%202.131-4.328%201.03-.02-.027-.49-.685-.141-1.763.233-.721.546-2.408.772-4.076.042-.09.067-.187.046-.288.166-1.347.277-2.625.241-3.351%201.378-1.008%202.271-2.586%202.271-4.362%200-.976-.272-1.935-.788-2.774-.057-.094-.122-.18-.184-.268.033-.167.052-.339.052-.516%200-1.477-1.202-2.679-2.679-2.679-.791%200-1.496.352-1.987.9a6.3%206.3%200%200%200-1.001.029c-.492-.564-1.207-.929-2.012-.929-1.477%200-2.679%201.202-2.679%202.679A2.65%202.65%200%200%200%20.97%206.554c-.383.747-.595%201.572-.595%202.41%200%202.311%201.507%204.29%203.635%205.107-.037.699-.147%202.27-.423%203.294l-.137.461c-.622%202.042-2.515%208.257%201.727%2010.643%201.614.908%203.06%201.248%204.317%201.248%202.665%200%204.492-1.524%205.322-2.401%201.476-1.559%202.886-1.854%206.491.82%201.877%201.393%203.514%201.753%204.861%201.068%202.223-1.713%202.811-3.867%203.399-6.374.077-.846.056-1.469.054-1.537zm-4.835%204.313c-.054.305-.156.586-.242.629-.034-.007-.131-.022-.307-.157-.145-.111-.314-.478-.456-.908.221.121.432.25.675.355.115.039.219.051.33.081zm-2.251-1.238c-.05.33-.158.648-.252.694-.022.001-.125-.018-.307-.157-.217-.166-.488-.906-.639-1.573.358.344.754.693%201.198%201.036zm-3.887-2.337c-.006-.116-.018-.231-.041-.342.635.145%201.189.368%201.599.625.097.231.166.481.174.642-.03.049-.055.101-.067.158-.046.013-.128.026-.298.004-.278-.037-.901-.57-1.367-1.087zm-1.127-.497c.116.306.176.625.12.71-.019.014-.117.045-.345.016-.206-.027-.604-.332-.986-.695.41-.051.816-.056%201.211-.031zm-4.535%201.535c.209.22.379.47.358.598-.006.041-.088.138-.351.234-.144.055-.539-.063-.979-.259a11.66%2011.66%200%200%200%20.972-.573zm.983-.664c.359-.237.738-.418%201.126-.554.25.237.479.548.457.694-.006.042-.087.138-.351.235-.174.064-.694-.105-1.232-.375zm-3.381%201.794c-.022.145-.061.29-.149.401-.133.166-.358.248-.69.251h-.002c-.133%200-.306-.26-.45-.621.417.091.854.07%201.291-.031zm-2.066-8.077a4.78%204.78%200%200%201-.775-.584c.172-.115.505-.254.88-.378l-.105.962zm-.331%202.302a10.32%2010.32%200%200%201-.828-.502c.202-.143.576-.328.984-.49l-.156.992zm-.45%202.157l-.701-.403c.214-.115.536-.249.891-.376a11.57%2011.57%200%200%201-.19.779zm-.181%201.716c.064.398.194.702.298.893-.194-.051-.435-.162-.736-.398.061-.119.224-.3.438-.495zM8.87%204.141c0%20.152-.123.276-.276.276s-.275-.124-.275-.276.123-.276.276-.276.275.124.275.276zm-.735-.389a1.15%201.15%200%200%200-.314.783%201.16%201.16%200%200%200%201.162%201.162c.457%200%20.842-.27%201.032-.653.026.117.042.238.042.362a1.68%201.68%200%200%201-1.679%201.679%201.68%201.68%200%200%201-1.679-1.679c0-.843.626-1.535%201.436-1.654zM5.059%205.406A1.68%201.68%200%200%201%203.38%207.085a1.68%201.68%200%200%201-1.679-1.679c0-.037.009-.072.011-.109.21.3.541.508.935.508a1.16%201.16%200%200%200%201.162-1.162%201.14%201.14%200%200%200-.474-.912c.015%200%20.03-.005.045-.005.926.001%201.679.754%201.679%201.68zM3.198%204.141c0%20.152-.123.276-.276.276s-.275-.124-.275-.276.123-.276.276-.276.275.124.275.276zM1.375%208.964c0-.52.103-1.035.288-1.52.466.394%201.06.64%201.717.64%201.144%200%202.116-.725%202.499-1.738.383%201.012%201.355%201.738%202.499%201.738.867%200%201.631-.421%202.121-1.062.307.605.478%201.267.478%201.942%200%202.486-2.153%204.51-4.801%204.51s-4.801-2.023-4.801-4.51zm24.342%2019.349c-.985.498-2.267.168-3.813-.979-3.073-2.281-5.453-3.199-7.813-.705-1.315%201.391-4.163%203.365-8.423.97-3.174-1.786-2.239-6.266-1.261-9.479l.146-.492c.276-1.02.395-2.457.444-3.268a6.11%206.11%200%200%200%201.18.115%206.01%206.01%200%200%200%202.536-.562l-.006.175c-.802.215-1.848.612-2.021%201.25-.079.295.021.601.274.837.219.203.415.364.598.501-.667.304-1.243.698-1.311%201.179-.02.144-.022.507.393.787.213.144.395.26.564.365-1.285.521-1.361.96-1.381%201.126-.018.142-.011.496.427.746l.854.489c-.473.389-.971.914-.999%201.429-.018.278.095.532.316.713.675.556%201.231.721%201.653.721.059%200%20.104-.014.158-.02.207.707.641%201.64%201.513%201.64h.013c.8-.008%201.236-.345%201.462-.626.173-.216.268-.457.325-.692.424.195.93.374%201.372.374.151%200%20.294-.021.423-.068.732-.27.944-.704.993-1.021.009-.061.003-.119.002-.179.266.086.538.147.789.147.15%200%20.294-.021.423-.069.542-.2.797-.489.914-.754.237.147.478.258.704.288.106.014.205.021.296.021.356%200%20.595-.101.767-.229.438.435%201.094.992%201.656%201.067.106.014.205.021.296.021a1.56%201.56%200%200%200%20.323-.035c.17.575.453%201.289.866%201.605.358.273.665.362.914.362a.99.99%200%200%200%20.421-.093%201.03%201.03%200%200%200%20.245-.164c.168.428.39.846.68%201.068.358.273.665.362.913.362a.99.99%200%200%200%20.421-.093c.317-.148.512-.448.639-.762.251.157.495.257.726.257.127%200%20.25-.024.37-.071.427-.17.706-.617.841-1.314.022-.015.047-.022.068-.038.067-.051.133-.104.196-.159-.443%201.486-1.107%202.761-2.086%203.257zM8.66%209.925a.5.5%200%201%200-1%200c0%20.653-.818%201.205-1.787%201.205s-1.787-.552-1.787-1.205a.5.5%200%201%200-1%200c0%201.216%201.25%202.205%202.787%202.205s2.787-.989%202.787-2.205zm4.4%2015.965l-.208.097c-2.661%201.258-4.708%201.436-6.086.527-1.542-1.017-1.88-3.19-1.844-4.198a.4.4%200%200%200-.385-.414c-.242-.029-.406.164-.414.385-.046%201.249.367%203.686%202.202%204.896.708.467%201.547.7%202.51.7%201.248%200%202.706-.392%204.362-1.174l.185-.086a.4.4%200%200%200%20.205-.527c-.089-.204-.326-.291-.527-.206zM9.547%202.292c.093.077.205.114.317.114a.5.5%200%200%200%20.318-.886L8.817.397a.5.5%200%200%200-.703.068.5.5%200%200%200%20.069.703l1.364%201.124zm-7.661-.065c.086%200%20.173-.022.253-.068l1.523-.893a.5.5%200%200%200-.506-.863l-1.523.892a.5.5%200%200%200-.179.685c.094.158.261.247.432.247z%22%20transform%3D%22matrix%28-1%200%200%201%2058%200%29%22%20fill%3D%22%233bb300%22/%3E%3Cpath%20d%3D%22M.3%2021.86V10.18q0-.46.02-.68.04-.22.18-.5.28-.54%201.34-.54%201.06%200%201.42.28.38.26.44.78.76-1.04%202.38-1.04%201.64%200%203.1%201.54%201.46%201.54%201.46%203.58%200%202.04-1.46%203.58-1.44%201.54-3.08%201.54-1.64%200-2.38-.92v4.04q0%20.46-.04.68-.02.22-.18.5-.14.3-.5.42-.36.12-.98.12-.62%200-1-.12-.36-.12-.52-.4-.14-.28-.18-.5-.02-.22-.02-.68zm3.96-9.42q-.46.54-.46%201.18%200%20.64.46%201.18.48.52%201.2.52.74%200%201.24-.52.52-.52.52-1.18%200-.66-.48-1.18-.48-.54-1.26-.54-.76%200-1.22.54zm14.741-8.36q.16-.3.54-.42.38-.12%201-.12.64%200%201.02.12.38.12.52.42.16.3.18.54.04.22.04.68v11.94q0%20.46-.04.7-.02.22-.18.5-.3.54-1.7.54-1.38%200-1.54-.98-.84.96-2.34.96-1.8%200-3.28-1.56-1.48-1.58-1.48-3.66%200-2.1%201.48-3.68%201.5-1.58%203.28-1.58%201.48%200%202.3%201v-4.2q0-.46.02-.68.04-.24.18-.52zm-3.24%2010.86q.52.54%201.26.54.74%200%201.22-.54.5-.54.5-1.18%200-.66-.48-1.22-.46-.56-1.26-.56-.8%200-1.28.56-.48.54-.48%201.2%200%20.66.52%201.2zm7.833-1.2q0-2.4%201.68-3.96%201.68-1.56%203.84-1.56%202.16%200%203.82%201.56%201.66%201.54%201.66%203.94%200%201.66-.86%202.96-.86%201.28-2.1%201.9-1.22.6-2.54.6-1.32%200-2.56-.64-1.24-.66-2.1-1.92-.84-1.28-.84-2.88zm4.18%201.44q.64.48%201.3.48.66%200%201.32-.5.66-.5.66-1.48%200-.98-.62-1.46-.62-.48-1.34-.48-.72%200-1.34.5-.62.5-.62%201.48%200%20.96.64%201.46zm11.412-1.44q0%20.84.56%201.32.56.46%201.18.46.64%200%201.18-.36.56-.38.9-.38.6%200%201.46%201.06.46.58.46%201.04%200%20.76-1.1%201.42-1.14.8-2.8.8-1.86%200-3.58-1.34-.82-.64-1.34-1.7-.52-1.08-.52-2.36%200-1.3.52-2.34.52-1.06%201.34-1.7%201.66-1.32%203.54-1.32.76%200%201.48.22.72.2%201.06.4l.32.2q.36.24.56.38.52.4.52.92%200%20.5-.42%201.14-.72%201.1-1.38%201.1-.38%200-1.08-.44-.36-.34-1.04-.34-.66%200-1.24.48-.58.48-.58%201.34z%22%20fill%3D%22green%22/%3E%3C/svg%3E"/>
+                    </a>
+            </div>
+        </nav>
+    <main class="pdoc">
+            <section>
+                    <h1 class="modulename">
+jsonscad_builder    </h1>
+
+                        <div class="docstring"><p>A module to create 3D choropleth maps in OpenSCAD from GeoJSON data.</p>
+
+<h6 id="copyright">Copyright</h6>
+
+<blockquote>
+  <p>Kenneth Yan 2022</p>
+</blockquote>
+
+<h6 id="license">License</h6>
+
+<blockquote>
+  <p>MIT License; see LICENSE.txt</p>
+</blockquote>
+</div>
+
+                        <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;A module to create 3D choropleth maps in OpenSCAD from GeoJSON data.</span>
+
+<span class="sd">Copyright:</span>
+<span class="sd">    Kenneth Yan 2022</span>
+<span class="sd">License:</span>
+<span class="sd">    MIT License; see LICENSE.txt</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
+<span class="kn">from</span> <span class="nn">rdp</span> <span class="kn">import</span> <span class="n">rdp</span>
+
+<span class="k">class</span> <span class="nc">JsonScadBuilder</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A class to represent a 3D chroropleth model.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        raw_json_data: OrderedDict storing raw GeoJSON data.</span>
+<span class="sd">        features: List storing features from a GeoJSON FeatureCollection.</span>
+<span class="sd">        num_features: Integer number of features.</span>
+<span class="sd">        bound_data_key_name: String containing the name of the statistical </span>
+<span class="sd">            variable that the 3D model visualizes. </span>
+<span class="sd">        origin: List of two elements `[lat, long]` that represents the </span>
+<span class="sd">            geographic coordinate corresponding to (0,0,0) in OpenSCAD.</span>
+<span class="sd">        scale_factor: Number that represents the scaling factor in a scaling </span>
+<span class="sd">            transformation of the polygon geometries.</span>
+<span class="sd">        offset_delta: Number that represents the offset distance for </span>
+<span class="sd">            drawing polygon geometries in OpenSCAD.</span>
+<span class="sd">        is_colored: Boolean that indicates whether color preview mode is</span>
+<span class="sd">            on or off.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># CONSTANTS</span>
+    <span class="n">DEFAULT_EXTRUDE_HEIGHT</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="sd">&quot;&quot;&quot;Default extrusion height if there does not exist a bound data value</span>
+<span class="sd">    for a feature.&quot;&quot;&quot;</span>
+    <span class="n">DEFAULT_RDP_EPSILON</span> <span class="o">=</span> <span class="mf">0.01</span>
+    <span class="sd">&quot;&quot;&quot;Default epsilon value for the Ramer-Douglas-Peucker (RDP) Algorithm.&quot;&quot;&quot;</span>
+
+    <span class="n">COLOR_BANK</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Brown&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Purple&#39;</span><span class="p">,</span> <span class="s1">&#39;Gold&#39;</span><span class="p">,</span> <span class="s1">&#39;Orange&#39;</span><span class="p">]</span>
+    <span class="sd">&quot;&quot;&quot;List of avaliable colors in color preview mode.&quot;&quot;&quot;</span>
+
+    <span class="c1"># CONSTRUCTOR</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initializes an instance of JsonScadBuilder.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_features</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale_factor</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_colored</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># HELPER FUNCTIONS</span>
+    <span class="k">def</span> <span class="nf">_transform_helper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">scale_factor</span> <span class="o">*</span> <span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale_factor</span> <span class="o">*</span> <span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+    
+    <span class="c1"># API METHODS</span>
+    <span class="k">def</span> <span class="nf">read_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reads GeoJSON data from a string.</span>
+
+<span class="sd">        Reads and parses data from a string containing a GeoJSON</span>
+<span class="sd">        FeatureCollection. Stores the parsed data in OrderedDict</span>
+<span class="sd">        `raw_json_data`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            str: String containing GeoJSON data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_read&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+    <span class="k">def</span> <span class="nf">read_json_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reads GeoJSON data from a file.</span>
+
+<span class="sd">        Reads and parses data from any `.read()`-supporting text file or </span>
+<span class="sd">        binary file containing a GeoJSON FeatureCollection. Stores the parsed </span>
+<span class="sd">        data in OrderedDict `raw_json_data`. Conventional file extensions are </span>
+<span class="sd">        .geojson and .json. </span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            filepath: String containing the path to the GeoJSON file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">object_pairs_hook</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_read&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+    <span class="k">def</span> <span class="nf">extract_features</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Extracts the &#39;features&#39; array from raw_json_data.</span>
+
+<span class="sd">        Looks up the &#39;features&#39; array from the OrderedDict `raw_json_data` </span>
+<span class="sd">        and sets the instance attribute `features` to the array.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_json&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_extc&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_features</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">simplify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eps</span> <span class="o">=</span> <span class="n">DEFAULT_RDP_EPSILON</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Simplifies the geometries for each feature.</span>
+
+<span class="sd">        Applies Ramer-Douglas-Peucker (RDP) Algorithm to all polygons </span>
+<span class="sd">        contained in the instance attribute `features`.  </span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            eps: The epsilon parameter of the RDP algorithm.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;start_smpl&#39;</span><span class="p">])</span>
+
+        <span class="c1"># Counter for the new number of total points</span>
+        <span class="c1"># Print once rdp is done running for all features</span>
+        <span class="n">num_points</span> <span class="o">=</span> <span class="mi">0</span> 
+
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">feature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">):</span>
+            <span class="c1"># Handle polygons </span>
+            <span class="k">if</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Polygon&quot;</span><span class="p">):</span>
+                <span class="c1"># index 0 contains exterior linear ring</span>
+                <span class="n">coords</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">sampled_coords</span> <span class="o">=</span> <span class="n">rdp</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">epsilon</span> <span class="o">=</span> <span class="n">eps</span><span class="p">)</span>
+                <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">sampled_coords</span>
+                <span class="n">num_points</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sampled_coords</span><span class="p">)</span>
+
+            <span class="c1"># Handle multipolygons, which store coordinate data</span>
+            <span class="c1"># one layer deeper than polygons</span>
+            <span class="k">elif</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;MultiPolygon&quot;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">polygon</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]:</span>
+                    <span class="c1"># index 0 contains exterior linear ring</span>
+                    <span class="n">coords</span> <span class="o">=</span> <span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">sampled_coords</span> <span class="o">=</span> <span class="n">rdp</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">epsilon</span> <span class="o">=</span> <span class="n">eps</span><span class="p">)</span>
+                    <span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">sampled_coords</span>
+                    <span class="n">num_points</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sampled_coords</span><span class="p">)</span>
+
+            <span class="c1"># Progress report</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;           &quot;</span> <span class="o">+</span> 
+            <span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; of &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_features</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; complete&quot;</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_smpl&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_points</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">scale_factor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Applies translation and scaling transformations to geometries.</span>
+
+<span class="sd">        Translates all points to new positions relative to the specified </span>
+<span class="sd">        `origin`. The `origin` represents the longitude and latitude position</span>
+<span class="sd">        that corresponds to (0,0,0) in OpenSCAD. Scales geometries by </span>
+<span class="sd">        `scale_factor`. Multiplication of coordinates by `scale_factor` occurs</span>
+<span class="sd">        after the translation.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            origin: A list of two elements `[long,lat]` in decimal form.  </span>
+<span class="sd">            scale_factor: A real number that will multiply the x and y </span>
+<span class="sd">                coordinates of all points. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="n">origin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale_factor</span> <span class="o">=</span> <span class="n">scale_factor</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+            <span class="c1"># Handle polygons </span>
+            <span class="k">if</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Polygon&quot;</span><span class="p">):</span>
+                <span class="c1"># index 0 contains exterior linear ring</span>
+                <span class="n">coords</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> 
+                <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                    <span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_transform_helper</span><span class="p">,</span> <span class="n">coords</span><span class="p">))</span>
+
+            <span class="c1"># Handle multipolygons, which store coordinate data</span>
+            <span class="c1"># one layer deeper than polygons</span>
+            <span class="k">elif</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;MultiPolygon&quot;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">polygon</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]:</span>
+                    <span class="c1"># index 0 contains exterior linear ring</span>
+                    <span class="n">coords</span> <span class="o">=</span> <span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transform_helper</span><span class="p">,</span> <span class="n">coords</span><span class="p">))</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_tsfm&#39;</span><span class="p">])</span> 
+
+    <span class="k">def</span> <span class="nf">offset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delta</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets the offset distance for polygon geometries.</span>
+
+<span class="sd">        Sets the instance attribute `offset_delta`. A non-zero `offset_data` </span>
+<span class="sd">        value signals `write_scad_file()` to draw all polygon geometries</span>
+<span class="sd">        with sides offset by `offset_delta` from the original polygon </span>
+<span class="sd">        geometries stored in `features`. Setting a positive `offset_delta`</span>
+<span class="sd">        can eliminate undesirable gaps between features in the model. </span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            delta: The offset distance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span> <span class="o">=</span> <span class="n">delta</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_ofst&#39;</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">bind_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_key_name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Binds statistical data to GeoJSON features.</span>
+
+<span class="sd">        Adds a new key-value pair to each feature&#39;s &#39;properties&#39; member,</span>
+<span class="sd">        where the key is the name of the statistical variable to visualize</span>
+<span class="sd">        in the choropleth and the value is the value for that geographic area.</span>
+<span class="sd">        The dataset `data` should be a list that has data points in the same </span>
+<span class="sd">        order as features in the list `features`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data_key_name: String containing the name of the statistical </span>
+<span class="sd">                variable.</span>
+<span class="sd">            data: A list containing numerical data values. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">=</span> <span class="n">data_key_name</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">feature</span><span class="p">,</span> <span class="n">datum</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+            <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="n">data_key_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">datum</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_bind&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_features</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))))</span>
+
+    <span class="k">def</span> <span class="nf">bind_data_by_identifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_key_name</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">id_key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Binds statistical data to GeoJSON features.</span>
+<span class="sd">        </span>
+<span class="sd">        Similar to `bind_data`, except this method matches data points to</span>
+<span class="sd">        features using the specified identifier `id_key`. The dataset `data` </span>
+<span class="sd">        should be a list containing lists of two elements `[id_value, value]`, </span>
+<span class="sd">        where `id_value` is the identifier value corresponding to the </span>
+<span class="sd">        intended feature, and `value` is the value of the statistical </span>
+<span class="sd">        variable at that geographic area. The identifier `id_key` should have</span>
+<span class="sd">        unique values across all features (example identifiers include:</span>
+<span class="sd">        county names if each feature is a county, or state abbreviations if </span>
+<span class="sd">        each feature is a state).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data_key_name: String containing the name of the statistical </span>
+<span class="sd">                variable.</span>
+<span class="sd">            data: A list containing lists of two elements `[id_value, value]`.</span>
+<span class="sd">            id_key: String containing the name of the identifier.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">=</span> <span class="n">data_key_name</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Counter for the number of datapoints with a match in the features list</span>
+        <span class="n">num_matches</span> <span class="o">=</span> <span class="mi">0</span> 
+
+        <span class="c1"># Search loop</span>
+        <span class="k">for</span> <span class="n">datum</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">id_key</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span> <span class="ow">and</span> 
+                <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="n">id_key</span><span class="p">]</span> <span class="o">==</span> <span class="n">datum</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                    <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="n">data_key_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">datum</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="n">num_matches</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">break</span>
+        
+        <span class="c1"># Only the data that matched with a feature were bound</span>
+        <span class="c1"># num matches == num featueres with bound data  </span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_bind&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_matches</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">scale_heights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="nb">range</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Converts the bound data value for each feature into a height.</span>
+
+<span class="sd">        Converts the bound data value for each feature into an extrusion </span>
+<span class="sd">        height for OpenSCAD. This method scales the bound data values </span>
+<span class="sd">        linearly according to `domain` and `range`; it scales the minimum </span>
+<span class="sd">        value in `domain` to the minimum height in `range`, and scales the </span>
+<span class="sd">        maximum value  in `domain` to the maximum height in `range`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            domain: A list of two numerical elements `[min, max]`</span>
+<span class="sd">            range: A list of two numerical elements `[min, max]`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">domain_diff</span> <span class="o">=</span> <span class="n">domain</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">domain</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">range_diff</span> <span class="o">=</span> <span class="nb">range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nb">range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;bdata_nf&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Keep track of min and max scaled height</span>
+        <span class="c1"># Use range bounds as upper and lower bounds</span>
+        <span class="c1"># for min and max heights respectively</span>
+        <span class="c1"># Report to user once all heights have been scaled</span>
+        <span class="n">min_max_height</span> <span class="o">=</span> <span class="p">[</span><span class="nb">range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">range</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span> 
+            <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]):</span>
+                <span class="n">scaling_ratio</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">]</span> 
+                    <span class="o">-</span> <span class="n">domain</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">domain_diff</span>
+                <span class="n">scaled_height</span> <span class="o">=</span> <span class="nb">range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">scaling_ratio</span> <span class="o">*</span> <span class="n">range_diff</span><span class="p">)</span>
+                <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaled_height</span>
+                
+                <span class="c1"># Checking for new min and max scaled heights</span>
+                <span class="n">min_max_height</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">scaled_height</span><span class="p">,</span> <span class="n">min_max_height</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">min_max_height</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">scaled_height</span><span class="p">,</span> <span class="n">min_max_height</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_scle&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">min_max_height</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">color_preview</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Turns on color preview mode.</span>
+
+<span class="sd">        If color preview mode is on, then `write_scad_file()` will assign </span>
+<span class="sd">        a random color to each feature. This allows for easy identification </span>
+<span class="sd">        of boundaries between geographic areas when viewing the generated </span>
+<span class="sd">        3D model in OpenSCAD.    </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_colored</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">write_scad_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generates OpenSCAD code and writes it to a file.</span>
+
+<span class="sd">        Generates code that creates OpenSCAD polygons from each feature in </span>
+<span class="sd">        `features` and extrudes them to the height proportional to the bound </span>
+<span class="sd">        data value. If a bound data value does not exist for a feature, then </span>
+<span class="sd">        that feature is extruded to the default extrusion height, 2. This</span>
+<span class="sd">        method then writes the OpenSCAD code to a file, which should have a </span>
+<span class="sd">        .scad file extension. If the file specified by `filepath` does not </span>
+<span class="sd">        exist, this method creates the file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            filepath: String containing the path to the .scad file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Counter so that each list of points has a unique name</span>
+        <span class="c1"># points_0, points_1, ..., points_n where there are n-1 total polygons</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">debug_num_coords</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+            <span class="c1"># Handle polygons </span>
+            <span class="k">if</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Polygon&quot;</span><span class="p">):</span>
+                <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;points_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;= &#39;</span>
+                <span class="c1"># index 0 contains exterior linear ring</span>
+                <span class="n">code</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;;</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_colored</span><span class="p">):</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;color(&quot;&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                        <span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">color_bank</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;&quot;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]):</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;linear_extrude(height=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                        <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;linear_extrude(height=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_EXTRUDE_HEIGHT</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span> 
+                
+                <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;offset(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;polygon(points_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;);</span><span class="se">\n</span><span class="s1">&#39;</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="c1"># Handle multipolygons, which store coordinate data</span>
+            <span class="c1"># one layer deeper than polygons</span>
+            <span class="k">elif</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;MultiPolygon&quot;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">polygon</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]:</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;points_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;= &#39;</span>
+                    <span class="c1"># index 0 contains exterior linear ring</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;;</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                    <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_colored</span><span class="p">):</span>
+                        <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;color(&quot;&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                            <span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">color_bank</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;&quot;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    
+                    <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> 
+                    <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]):</span>
+                        <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;linear_extrude(height=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                            <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;linear_extrude(height=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_EXTRUDE_HEIGHT</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span> 
+
+                    <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                        <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;offset(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;polygon(points_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;);</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">char_out</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+            
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_wrte&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">filepath</span> <span class="o">+</span> 
+        <span class="s2">&quot;, characters written: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">char_out</span><span class="p">))</span>
+        
+<span class="c1"># ERROR AND STATUS MESSAGES</span>
+<span class="n">error_msg</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;emp_json&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s2">&quot;raw_json_data cannot be empty. &quot;</span> 
+    <span class="s2">&quot;Perhaps you forgot to read GeoJSON data?&quot;</span><span class="p">),</span>
+    <span class="s1">&#39;emp_feat&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s2">&quot;features list cannot be empty. &quot;</span>
+    <span class="s2">&quot;Perhaps you forgot to call extract_features()?&quot;</span><span class="p">),</span>
+    <span class="s1">&#39;bdata_nf&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s2">&quot;bound_data_key_name cannot be empty. &quot;</span>
+    <span class="s2">&quot;Perhaps you forgot to bind data to the model?&quot;</span><span class="p">)</span> 
+<span class="p">}</span>
+
+<span class="n">status_msg</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;end_read&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s2">&quot;SUCCESS    &quot;</span>
+    <span class="s2">&quot;Read JSON data into dictionary with keys: &quot;</span><span class="p">),</span>
+    <span class="s1">&#39;end_extc&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s2">&quot;SUCCESS    &quot;</span>
+    <span class="s2">&quot;Extracted GeoJSON features, count: &quot;</span><span class="p">),</span>
+    <span class="s1">&#39;start_smpl&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s2">&quot;           &quot;</span>
+    <span class="s2">&quot;Running geometry simplification...&quot;</span><span class="p">),</span>
+    <span class="s1">&#39;end_smpl&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s2">&quot;SUCCESS    &quot;</span>
+    <span class="s2">&quot;Finished geometry simplification, new number of points: &quot;</span><span class="p">),</span> 
+    <span class="s1">&#39;end_tsfm&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s2">&quot;SUCCESS    &quot;</span>
+    <span class="s2">&quot;Finished transformation&quot;</span><span class="p">),</span>
+    <span class="s1">&#39;end_ofst&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s2">&quot;SUCCESS    &quot;</span>
+    <span class="s2">&quot;Finished offset&quot;</span><span class="p">),</span>
+    <span class="s1">&#39;end_bind&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s2">&quot;SUCCESS    &quot;</span>
+    <span class="s2">&quot;Finished data binding, number of features with bound data: &quot;</span><span class="p">),</span>
+    <span class="s1">&#39;end_scle&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s2">&quot;SUCCESS    &quot;</span>
+    <span class="s2">&quot;Finished height scaling, [min, max] heights: &quot;</span><span class="p">),</span>
+    <span class="s1">&#39;end_wrte&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s2">&quot;SUCCESS    &quot;</span>
+    <span class="s2">&quot;Finished writing to file: &quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+        </details>
+
+            </section>
+                <section id="JsonScadBuilder">
+                                <div class="attr class">
+        <a class="headerlink" href="#JsonScadBuilder">#&nbsp;&nbsp</a>
+
+        
+        <span class="def">class</span>
+        <span class="name">JsonScadBuilder</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">JsonScadBuilder</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A class to represent a 3D chroropleth model.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        raw_json_data: OrderedDict storing raw GeoJSON data.</span>
+<span class="sd">        features: List storing features from a GeoJSON FeatureCollection.</span>
+<span class="sd">        num_features: Integer number of features.</span>
+<span class="sd">        bound_data_key_name: String containing the name of the statistical </span>
+<span class="sd">            variable that the 3D model visualizes. </span>
+<span class="sd">        origin: List of two elements `[lat, long]` that represents the </span>
+<span class="sd">            geographic coordinate corresponding to (0,0,0) in OpenSCAD.</span>
+<span class="sd">        scale_factor: Number that represents the scaling factor in a scaling </span>
+<span class="sd">            transformation of the polygon geometries.</span>
+<span class="sd">        offset_delta: Number that represents the offset distance for </span>
+<span class="sd">            drawing polygon geometries in OpenSCAD.</span>
+<span class="sd">        is_colored: Boolean that indicates whether color preview mode is</span>
+<span class="sd">            on or off.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># CONSTANTS</span>
+    <span class="n">DEFAULT_EXTRUDE_HEIGHT</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="sd">&quot;&quot;&quot;Default extrusion height if there does not exist a bound data value</span>
+<span class="sd">    for a feature.&quot;&quot;&quot;</span>
+    <span class="n">DEFAULT_RDP_EPSILON</span> <span class="o">=</span> <span class="mf">0.01</span>
+    <span class="sd">&quot;&quot;&quot;Default epsilon value for the Ramer-Douglas-Peucker (RDP) Algorithm.&quot;&quot;&quot;</span>
+
+    <span class="n">COLOR_BANK</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Brown&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Purple&#39;</span><span class="p">,</span> <span class="s1">&#39;Gold&#39;</span><span class="p">,</span> <span class="s1">&#39;Orange&#39;</span><span class="p">]</span>
+    <span class="sd">&quot;&quot;&quot;List of avaliable colors in color preview mode.&quot;&quot;&quot;</span>
+
+    <span class="c1"># CONSTRUCTOR</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initializes an instance of JsonScadBuilder.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_features</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale_factor</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_colored</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># HELPER FUNCTIONS</span>
+    <span class="k">def</span> <span class="nf">_transform_helper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pair</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">scale_factor</span> <span class="o">*</span> <span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale_factor</span> <span class="o">*</span> <span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+    
+    <span class="c1"># API METHODS</span>
+    <span class="k">def</span> <span class="nf">read_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reads GeoJSON data from a string.</span>
+
+<span class="sd">        Reads and parses data from a string containing a GeoJSON</span>
+<span class="sd">        FeatureCollection. Stores the parsed data in OrderedDict</span>
+<span class="sd">        `raw_json_data`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            str: String containing GeoJSON data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_read&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+    <span class="k">def</span> <span class="nf">read_json_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reads GeoJSON data from a file.</span>
+
+<span class="sd">        Reads and parses data from any `.read()`-supporting text file or </span>
+<span class="sd">        binary file containing a GeoJSON FeatureCollection. Stores the parsed </span>
+<span class="sd">        data in OrderedDict `raw_json_data`. Conventional file extensions are </span>
+<span class="sd">        .geojson and .json. </span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            filepath: String containing the path to the GeoJSON file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">object_pairs_hook</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_read&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+    <span class="k">def</span> <span class="nf">extract_features</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Extracts the &#39;features&#39; array from raw_json_data.</span>
+
+<span class="sd">        Looks up the &#39;features&#39; array from the OrderedDict `raw_json_data` </span>
+<span class="sd">        and sets the instance attribute `features` to the array.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_json&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_extc&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_features</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">simplify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eps</span> <span class="o">=</span> <span class="n">DEFAULT_RDP_EPSILON</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Simplifies the geometries for each feature.</span>
+
+<span class="sd">        Applies Ramer-Douglas-Peucker (RDP) Algorithm to all polygons </span>
+<span class="sd">        contained in the instance attribute `features`.  </span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            eps: The epsilon parameter of the RDP algorithm.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;start_smpl&#39;</span><span class="p">])</span>
+
+        <span class="c1"># Counter for the new number of total points</span>
+        <span class="c1"># Print once rdp is done running for all features</span>
+        <span class="n">num_points</span> <span class="o">=</span> <span class="mi">0</span> 
+
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">feature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">):</span>
+            <span class="c1"># Handle polygons </span>
+            <span class="k">if</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Polygon&quot;</span><span class="p">):</span>
+                <span class="c1"># index 0 contains exterior linear ring</span>
+                <span class="n">coords</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">sampled_coords</span> <span class="o">=</span> <span class="n">rdp</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">epsilon</span> <span class="o">=</span> <span class="n">eps</span><span class="p">)</span>
+                <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">sampled_coords</span>
+                <span class="n">num_points</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sampled_coords</span><span class="p">)</span>
+
+            <span class="c1"># Handle multipolygons, which store coordinate data</span>
+            <span class="c1"># one layer deeper than polygons</span>
+            <span class="k">elif</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;MultiPolygon&quot;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">polygon</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]:</span>
+                    <span class="c1"># index 0 contains exterior linear ring</span>
+                    <span class="n">coords</span> <span class="o">=</span> <span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">sampled_coords</span> <span class="o">=</span> <span class="n">rdp</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">epsilon</span> <span class="o">=</span> <span class="n">eps</span><span class="p">)</span>
+                    <span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">sampled_coords</span>
+                    <span class="n">num_points</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sampled_coords</span><span class="p">)</span>
+
+            <span class="c1"># Progress report</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;           &quot;</span> <span class="o">+</span> 
+            <span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; of &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_features</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; complete&quot;</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_smpl&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_points</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">scale_factor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Applies translation and scaling transformations to geometries.</span>
+
+<span class="sd">        Translates all points to new positions relative to the specified </span>
+<span class="sd">        `origin`. The `origin` represents the longitude and latitude position</span>
+<span class="sd">        that corresponds to (0,0,0) in OpenSCAD. Scales geometries by </span>
+<span class="sd">        `scale_factor`. Multiplication of coordinates by `scale_factor` occurs</span>
+<span class="sd">        after the translation.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            origin: A list of two elements `[long,lat]` in decimal form.  </span>
+<span class="sd">            scale_factor: A real number that will multiply the x and y </span>
+<span class="sd">                coordinates of all points. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="n">origin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale_factor</span> <span class="o">=</span> <span class="n">scale_factor</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+            <span class="c1"># Handle polygons </span>
+            <span class="k">if</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Polygon&quot;</span><span class="p">):</span>
+                <span class="c1"># index 0 contains exterior linear ring</span>
+                <span class="n">coords</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> 
+                <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                    <span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_transform_helper</span><span class="p">,</span> <span class="n">coords</span><span class="p">))</span>
+
+            <span class="c1"># Handle multipolygons, which store coordinate data</span>
+            <span class="c1"># one layer deeper than polygons</span>
+            <span class="k">elif</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;MultiPolygon&quot;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">polygon</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]:</span>
+                    <span class="c1"># index 0 contains exterior linear ring</span>
+                    <span class="n">coords</span> <span class="o">=</span> <span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transform_helper</span><span class="p">,</span> <span class="n">coords</span><span class="p">))</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_tsfm&#39;</span><span class="p">])</span> 
+
+    <span class="k">def</span> <span class="nf">offset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delta</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets the offset distance for polygon geometries.</span>
+
+<span class="sd">        Sets the instance attribute `offset_delta`. A non-zero `offset_data` </span>
+<span class="sd">        value signals `write_scad_file()` to draw all polygon geometries</span>
+<span class="sd">        with sides offset by `offset_delta` from the original polygon </span>
+<span class="sd">        geometries stored in `features`. Setting a positive `offset_delta`</span>
+<span class="sd">        can eliminate undesirable gaps between features in the model. </span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            delta: The offset distance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span> <span class="o">=</span> <span class="n">delta</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_ofst&#39;</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">bind_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_key_name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Binds statistical data to GeoJSON features.</span>
+
+<span class="sd">        Adds a new key-value pair to each feature&#39;s &#39;properties&#39; member,</span>
+<span class="sd">        where the key is the name of the statistical variable to visualize</span>
+<span class="sd">        in the choropleth and the value is the value for that geographic area.</span>
+<span class="sd">        The dataset `data` should be a list that has data points in the same </span>
+<span class="sd">        order as features in the list `features`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data_key_name: String containing the name of the statistical </span>
+<span class="sd">                variable.</span>
+<span class="sd">            data: A list containing numerical data values. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">=</span> <span class="n">data_key_name</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">feature</span><span class="p">,</span> <span class="n">datum</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+            <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="n">data_key_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">datum</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_bind&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_features</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))))</span>
+
+    <span class="k">def</span> <span class="nf">bind_data_by_identifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_key_name</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">id_key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Binds statistical data to GeoJSON features.</span>
+<span class="sd">        </span>
+<span class="sd">        Similar to `bind_data`, except this method matches data points to</span>
+<span class="sd">        features using the specified identifier `id_key`. The dataset `data` </span>
+<span class="sd">        should be a list containing lists of two elements `[id_value, value]`, </span>
+<span class="sd">        where `id_value` is the identifier value corresponding to the </span>
+<span class="sd">        intended feature, and `value` is the value of the statistical </span>
+<span class="sd">        variable at that geographic area. The identifier `id_key` should have</span>
+<span class="sd">        unique values across all features (example identifiers include:</span>
+<span class="sd">        county names if each feature is a county, or state abbreviations if </span>
+<span class="sd">        each feature is a state).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data_key_name: String containing the name of the statistical </span>
+<span class="sd">                variable.</span>
+<span class="sd">            data: A list containing lists of two elements `[id_value, value]`.</span>
+<span class="sd">            id_key: String containing the name of the identifier.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">=</span> <span class="n">data_key_name</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Counter for the number of datapoints with a match in the features list</span>
+        <span class="n">num_matches</span> <span class="o">=</span> <span class="mi">0</span> 
+
+        <span class="c1"># Search loop</span>
+        <span class="k">for</span> <span class="n">datum</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">id_key</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span> <span class="ow">and</span> 
+                <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="n">id_key</span><span class="p">]</span> <span class="o">==</span> <span class="n">datum</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                    <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="n">data_key_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">datum</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="n">num_matches</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">break</span>
+        
+        <span class="c1"># Only the data that matched with a feature were bound</span>
+        <span class="c1"># num matches == num featueres with bound data  </span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_bind&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_matches</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">scale_heights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="nb">range</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Converts the bound data value for each feature into a height.</span>
+
+<span class="sd">        Converts the bound data value for each feature into an extrusion </span>
+<span class="sd">        height for OpenSCAD. This method scales the bound data values </span>
+<span class="sd">        linearly according to `domain` and `range`; it scales the minimum </span>
+<span class="sd">        value in `domain` to the minimum height in `range`, and scales the </span>
+<span class="sd">        maximum value  in `domain` to the maximum height in `range`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            domain: A list of two numerical elements `[min, max]`</span>
+<span class="sd">            range: A list of two numerical elements `[min, max]`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">domain_diff</span> <span class="o">=</span> <span class="n">domain</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">domain</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">range_diff</span> <span class="o">=</span> <span class="nb">range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nb">range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;bdata_nf&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Keep track of min and max scaled height</span>
+        <span class="c1"># Use range bounds as upper and lower bounds</span>
+        <span class="c1"># for min and max heights respectively</span>
+        <span class="c1"># Report to user once all heights have been scaled</span>
+        <span class="n">min_max_height</span> <span class="o">=</span> <span class="p">[</span><span class="nb">range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">range</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span> 
+            <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]):</span>
+                <span class="n">scaling_ratio</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">]</span> 
+                    <span class="o">-</span> <span class="n">domain</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">domain_diff</span>
+                <span class="n">scaled_height</span> <span class="o">=</span> <span class="nb">range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">scaling_ratio</span> <span class="o">*</span> <span class="n">range_diff</span><span class="p">)</span>
+                <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaled_height</span>
+                
+                <span class="c1"># Checking for new min and max scaled heights</span>
+                <span class="n">min_max_height</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">scaled_height</span><span class="p">,</span> <span class="n">min_max_height</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">min_max_height</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">scaled_height</span><span class="p">,</span> <span class="n">min_max_height</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_scle&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">min_max_height</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">color_preview</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Turns on color preview mode.</span>
+
+<span class="sd">        If color preview mode is on, then `write_scad_file()` will assign </span>
+<span class="sd">        a random color to each feature. This allows for easy identification </span>
+<span class="sd">        of boundaries between geographic areas when viewing the generated </span>
+<span class="sd">        3D model in OpenSCAD.    </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_colored</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">write_scad_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generates OpenSCAD code and writes it to a file.</span>
+
+<span class="sd">        Generates code that creates OpenSCAD polygons from each feature in </span>
+<span class="sd">        `features` and extrudes them to the height proportional to the bound </span>
+<span class="sd">        data value. If a bound data value does not exist for a feature, then </span>
+<span class="sd">        that feature is extruded to the default extrusion height, 2. This</span>
+<span class="sd">        method then writes the OpenSCAD code to a file, which should have a </span>
+<span class="sd">        .scad file extension. If the file specified by `filepath` does not </span>
+<span class="sd">        exist, this method creates the file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            filepath: String containing the path to the .scad file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Counter so that each list of points has a unique name</span>
+        <span class="c1"># points_0, points_1, ..., points_n where there are n-1 total polygons</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">debug_num_coords</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+            <span class="c1"># Handle polygons </span>
+            <span class="k">if</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Polygon&quot;</span><span class="p">):</span>
+                <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;points_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;= &#39;</span>
+                <span class="c1"># index 0 contains exterior linear ring</span>
+                <span class="n">code</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;;</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_colored</span><span class="p">):</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;color(&quot;&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                        <span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">color_bank</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;&quot;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]):</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;linear_extrude(height=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                        <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;linear_extrude(height=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_EXTRUDE_HEIGHT</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span> 
+                
+                <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;offset(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;polygon(points_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;);</span><span class="se">\n</span><span class="s1">&#39;</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="c1"># Handle multipolygons, which store coordinate data</span>
+            <span class="c1"># one layer deeper than polygons</span>
+            <span class="k">elif</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;MultiPolygon&quot;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">polygon</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]:</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;points_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;= &#39;</span>
+                    <span class="c1"># index 0 contains exterior linear ring</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;;</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                    <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_colored</span><span class="p">):</span>
+                        <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;color(&quot;&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                            <span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">color_bank</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;&quot;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    
+                    <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> 
+                    <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]):</span>
+                        <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;linear_extrude(height=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                            <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;linear_extrude(height=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_EXTRUDE_HEIGHT</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span> 
+
+                    <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                        <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;offset(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;polygon(points_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;);</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">char_out</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+            
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_wrte&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">filepath</span> <span class="o">+</span> 
+        <span class="s2">&quot;, characters written: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">char_out</span><span class="p">))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>A class to represent a 3D chroropleth model.</p>
+
+<h6 id="attributes">Attributes</h6>
+
+<ul>
+<li><strong>raw_json_data:</strong>  OrderedDict storing raw GeoJSON data.</li>
+<li><strong>features:</strong>  List storing features from a GeoJSON FeatureCollection.</li>
+<li><strong>num_features:</strong>  Integer number of features.</li>
+<li><strong>bound_data_key_name:</strong>  String containing the name of the statistical 
+variable that the 3D model visualizes. </li>
+<li><strong>origin:</strong>  List of two elements <code>[lat, long]</code> that represents the 
+geographic coordinate corresponding to (0,0,0) in OpenSCAD.</li>
+<li><strong>scale_factor:</strong>  Number that represents the scaling factor in a scaling 
+transformation of the polygon geometries.</li>
+<li><strong>offset_delta:</strong>  Number that represents the offset distance for 
+drawing polygon geometries in OpenSCAD.</li>
+<li><strong>is_colored:</strong>  Boolean that indicates whether color preview mode is
+on or off.</li>
+</ul>
+</div>
+
+
+                            <div id="JsonScadBuilder.__init__" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#JsonScadBuilder.__init__">#&nbsp;&nbsp</a>
+
+        
+            <span class="name">JsonScadBuilder</span><span class="signature">()</span>
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initializes an instance of JsonScadBuilder.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_features</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale_factor</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_colored</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Initializes an instance of JsonScadBuilder.</p>
+</div>
+
+
+                            </div>
+                            <div id="JsonScadBuilder.DEFAULT_EXTRUDE_HEIGHT" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#JsonScadBuilder.DEFAULT_EXTRUDE_HEIGHT">#&nbsp;&nbsp</a>
+
+        <span class="name">DEFAULT_EXTRUDE_HEIGHT</span><span class="default_value"> = 2</span>
+    </div>
+
+            <div class="docstring"><p>Default extrusion height if there does not exist a bound data value
+for a feature.</p>
+</div>
+
+
+                            </div>
+                            <div id="JsonScadBuilder.DEFAULT_RDP_EPSILON" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#JsonScadBuilder.DEFAULT_RDP_EPSILON">#&nbsp;&nbsp</a>
+
+        <span class="name">DEFAULT_RDP_EPSILON</span><span class="default_value"> = 0.01</span>
+    </div>
+
+            <div class="docstring"><p>Default epsilon value for the Ramer-Douglas-Peucker (RDP) Algorithm.</p>
+</div>
+
+
+                            </div>
+                            <div id="JsonScadBuilder.COLOR_BANK" class="classattr">
+                                            <div class="attr variable"><a class="headerlink" href="#JsonScadBuilder.COLOR_BANK">#&nbsp;&nbsp</a>
+
+        <span class="name">COLOR_BANK</span><span class="default_value"> = [&#39;Red&#39;, &#39;Green&#39;, &#39;Blue&#39;, &#39;Brown&#39;, &#39;Purple&#39;, &#39;Gold&#39;, &#39;Orange&#39;]</span>
+    </div>
+
+            <div class="docstring"><p>List of avaliable colors in color preview mode.</p>
+</div>
+
+
+                            </div>
+                            <div id="JsonScadBuilder.read_json" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#JsonScadBuilder.read_json">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">read_json</span><span class="signature">(self, str)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">read_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reads GeoJSON data from a string.</span>
+
+<span class="sd">        Reads and parses data from a string containing a GeoJSON</span>
+<span class="sd">        FeatureCollection. Stores the parsed data in OrderedDict</span>
+<span class="sd">        `raw_json_data`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            str: String containing GeoJSON data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_read&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Reads GeoJSON data from a string.</p>
+
+<p>Reads and parses data from a string containing a GeoJSON
+FeatureCollection. Stores the parsed data in OrderedDict
+<code>raw_json_data</code>.</p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>str:</strong>  String containing GeoJSON data.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="JsonScadBuilder.read_json_file" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#JsonScadBuilder.read_json_file">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">read_json_file</span><span class="signature">(self, filepath)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">read_json_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reads GeoJSON data from a file.</span>
+
+<span class="sd">        Reads and parses data from any `.read()`-supporting text file or </span>
+<span class="sd">        binary file containing a GeoJSON FeatureCollection. Stores the parsed </span>
+<span class="sd">        data in OrderedDict `raw_json_data`. Conventional file extensions are </span>
+<span class="sd">        .geojson and .json. </span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            filepath: String containing the path to the GeoJSON file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">object_pairs_hook</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_read&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Reads GeoJSON data from a file.</p>
+
+<p>Reads and parses data from any <code>.read()</code>-supporting text file or 
+binary file containing a GeoJSON FeatureCollection. Stores the parsed 
+data in OrderedDict <code>raw_json_data</code>. Conventional file extensions are 
+.geojson and .json. </p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>filepath:</strong>  String containing the path to the GeoJSON file.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="JsonScadBuilder.extract_features" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#JsonScadBuilder.extract_features">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">extract_features</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">extract_features</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Extracts the &#39;features&#39; array from raw_json_data.</span>
+
+<span class="sd">        Looks up the &#39;features&#39; array from the OrderedDict `raw_json_data` </span>
+<span class="sd">        and sets the instance attribute `features` to the array.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_json&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_json_data</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_extc&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_features</span><span class="p">))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Extracts the 'features' array from raw_json_data.</p>
+
+<p>Looks up the 'features' array from the OrderedDict <code>raw_json_data</code> 
+and sets the instance attribute <code>features</code> to the array.</p>
+</div>
+
+
+                            </div>
+                            <div id="JsonScadBuilder.simplify" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#JsonScadBuilder.simplify">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">simplify</span><span class="signature">(self, eps=0.01)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">simplify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eps</span> <span class="o">=</span> <span class="n">DEFAULT_RDP_EPSILON</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Simplifies the geometries for each feature.</span>
+
+<span class="sd">        Applies Ramer-Douglas-Peucker (RDP) Algorithm to all polygons </span>
+<span class="sd">        contained in the instance attribute `features`.  </span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            eps: The epsilon parameter of the RDP algorithm.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;start_smpl&#39;</span><span class="p">])</span>
+
+        <span class="c1"># Counter for the new number of total points</span>
+        <span class="c1"># Print once rdp is done running for all features</span>
+        <span class="n">num_points</span> <span class="o">=</span> <span class="mi">0</span> 
+
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">feature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">):</span>
+            <span class="c1"># Handle polygons </span>
+            <span class="k">if</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Polygon&quot;</span><span class="p">):</span>
+                <span class="c1"># index 0 contains exterior linear ring</span>
+                <span class="n">coords</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">sampled_coords</span> <span class="o">=</span> <span class="n">rdp</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">epsilon</span> <span class="o">=</span> <span class="n">eps</span><span class="p">)</span>
+                <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">sampled_coords</span>
+                <span class="n">num_points</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sampled_coords</span><span class="p">)</span>
+
+            <span class="c1"># Handle multipolygons, which store coordinate data</span>
+            <span class="c1"># one layer deeper than polygons</span>
+            <span class="k">elif</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;MultiPolygon&quot;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">polygon</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]:</span>
+                    <span class="c1"># index 0 contains exterior linear ring</span>
+                    <span class="n">coords</span> <span class="o">=</span> <span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">sampled_coords</span> <span class="o">=</span> <span class="n">rdp</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">epsilon</span> <span class="o">=</span> <span class="n">eps</span><span class="p">)</span>
+                    <span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">sampled_coords</span>
+                    <span class="n">num_points</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sampled_coords</span><span class="p">)</span>
+
+            <span class="c1"># Progress report</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;           &quot;</span> <span class="o">+</span> 
+            <span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; of &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_features</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; complete&quot;</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_smpl&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_points</span><span class="p">))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Simplifies the geometries for each feature.</p>
+
+<p>Applies Ramer-Douglas-Peucker (RDP) Algorithm to all polygons 
+contained in the instance attribute <code>features</code>.  </p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>eps:</strong>  The epsilon parameter of the RDP algorithm.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="JsonScadBuilder.transform" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#JsonScadBuilder.transform">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">transform</span><span class="signature">(self, origin, scale_factor)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">scale_factor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Applies translation and scaling transformations to geometries.</span>
+
+<span class="sd">        Translates all points to new positions relative to the specified </span>
+<span class="sd">        `origin`. The `origin` represents the longitude and latitude position</span>
+<span class="sd">        that corresponds to (0,0,0) in OpenSCAD. Scales geometries by </span>
+<span class="sd">        `scale_factor`. Multiplication of coordinates by `scale_factor` occurs</span>
+<span class="sd">        after the translation.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            origin: A list of two elements `[long,lat]` in decimal form.  </span>
+<span class="sd">            scale_factor: A real number that will multiply the x and y </span>
+<span class="sd">                coordinates of all points. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="n">origin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale_factor</span> <span class="o">=</span> <span class="n">scale_factor</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+            <span class="c1"># Handle polygons </span>
+            <span class="k">if</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Polygon&quot;</span><span class="p">):</span>
+                <span class="c1"># index 0 contains exterior linear ring</span>
+                <span class="n">coords</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> 
+                <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                    <span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_transform_helper</span><span class="p">,</span> <span class="n">coords</span><span class="p">))</span>
+
+            <span class="c1"># Handle multipolygons, which store coordinate data</span>
+            <span class="c1"># one layer deeper than polygons</span>
+            <span class="k">elif</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;MultiPolygon&quot;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">polygon</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]:</span>
+                    <span class="c1"># index 0 contains exterior linear ring</span>
+                    <span class="n">coords</span> <span class="o">=</span> <span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transform_helper</span><span class="p">,</span> <span class="n">coords</span><span class="p">))</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_tsfm&#39;</span><span class="p">])</span> 
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Applies translation and scaling transformations to geometries.</p>
+
+<p>Translates all points to new positions relative to the specified 
+<code>origin</code>. The <code>origin</code> represents the longitude and latitude position
+that corresponds to (0,0,0) in OpenSCAD. Scales geometries by 
+<code>scale_factor</code>. Multiplication of coordinates by <code>scale_factor</code> occurs
+after the translation.</p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>origin:</strong>  A list of two elements <code>[long,lat]</code> in decimal form.  </li>
+<li><strong>scale_factor:</strong>  A real number that will multiply the x and y 
+coordinates of all points.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="JsonScadBuilder.offset" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#JsonScadBuilder.offset">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">offset</span><span class="signature">(self, delta)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">offset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delta</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets the offset distance for polygon geometries.</span>
+
+<span class="sd">        Sets the instance attribute `offset_delta`. A non-zero `offset_data` </span>
+<span class="sd">        value signals `write_scad_file()` to draw all polygon geometries</span>
+<span class="sd">        with sides offset by `offset_delta` from the original polygon </span>
+<span class="sd">        geometries stored in `features`. Setting a positive `offset_delta`</span>
+<span class="sd">        can eliminate undesirable gaps between features in the model. </span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            delta: The offset distance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span> <span class="o">=</span> <span class="n">delta</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_ofst&#39;</span><span class="p">])</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Sets the offset distance for polygon geometries.</p>
+
+<p>Sets the instance attribute <code>offset_delta</code>. A non-zero <code>offset_data</code> 
+value signals <code><a href="#JsonScadBuilder.write_scad_file">write_scad_file()</a></code> to draw all polygon geometries
+with sides offset by <code>offset_delta</code> from the original polygon 
+geometries stored in <code>features</code>. Setting a positive <code>offset_delta</code>
+can eliminate undesirable gaps between features in the model. </p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>delta:</strong>  The offset distance.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="JsonScadBuilder.bind_data" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#JsonScadBuilder.bind_data">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">bind_data</span><span class="signature">(self, data_key_name, data)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">bind_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_key_name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Binds statistical data to GeoJSON features.</span>
+
+<span class="sd">        Adds a new key-value pair to each feature&#39;s &#39;properties&#39; member,</span>
+<span class="sd">        where the key is the name of the statistical variable to visualize</span>
+<span class="sd">        in the choropleth and the value is the value for that geographic area.</span>
+<span class="sd">        The dataset `data` should be a list that has data points in the same </span>
+<span class="sd">        order as features in the list `features`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data_key_name: String containing the name of the statistical </span>
+<span class="sd">                variable.</span>
+<span class="sd">            data: A list containing numerical data values. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">=</span> <span class="n">data_key_name</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">feature</span><span class="p">,</span> <span class="n">datum</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+            <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="n">data_key_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">datum</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_bind&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_features</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Binds statistical data to GeoJSON features.</p>
+
+<p>Adds a new key-value pair to each feature's 'properties' member,
+where the key is the name of the statistical variable to visualize
+in the choropleth and the value is the value for that geographic area.
+The dataset <code>data</code> should be a list that has data points in the same 
+order as features in the list <code>features</code>.</p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>data_key_name:</strong>  String containing the name of the statistical 
+variable.</li>
+<li><strong>data:</strong>  A list containing numerical data values.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="JsonScadBuilder.bind_data_by_identifier" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#JsonScadBuilder.bind_data_by_identifier">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">bind_data_by_identifier</span><span class="signature">(self, data_key_name, data, id_key)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">bind_data_by_identifier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_key_name</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">id_key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Binds statistical data to GeoJSON features.</span>
+<span class="sd">        </span>
+<span class="sd">        Similar to `bind_data`, except this method matches data points to</span>
+<span class="sd">        features using the specified identifier `id_key`. The dataset `data` </span>
+<span class="sd">        should be a list containing lists of two elements `[id_value, value]`, </span>
+<span class="sd">        where `id_value` is the identifier value corresponding to the </span>
+<span class="sd">        intended feature, and `value` is the value of the statistical </span>
+<span class="sd">        variable at that geographic area. The identifier `id_key` should have</span>
+<span class="sd">        unique values across all features (example identifiers include:</span>
+<span class="sd">        county names if each feature is a county, or state abbreviations if </span>
+<span class="sd">        each feature is a state).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data_key_name: String containing the name of the statistical </span>
+<span class="sd">                variable.</span>
+<span class="sd">            data: A list containing lists of two elements `[id_value, value]`.</span>
+<span class="sd">            id_key: String containing the name of the identifier.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">=</span> <span class="n">data_key_name</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Counter for the number of datapoints with a match in the features list</span>
+        <span class="n">num_matches</span> <span class="o">=</span> <span class="mi">0</span> 
+
+        <span class="c1"># Search loop</span>
+        <span class="k">for</span> <span class="n">datum</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">id_key</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span> <span class="ow">and</span> 
+                <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="n">id_key</span><span class="p">]</span> <span class="o">==</span> <span class="n">datum</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                    <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="n">data_key_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">datum</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="n">num_matches</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">break</span>
+        
+        <span class="c1"># Only the data that matched with a feature were bound</span>
+        <span class="c1"># num matches == num featueres with bound data  </span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_bind&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_matches</span><span class="p">))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Binds statistical data to GeoJSON features.</p>
+
+<p>Similar to <code><a href="#JsonScadBuilder.bind_data">bind_data</a></code>, except this method matches data points to
+features using the specified identifier <code>id_key</code>. The dataset <code>data</code> 
+should be a list containing lists of two elements <code>[id_value, value]</code>, 
+where <code>id_value</code> is the identifier value corresponding to the 
+intended feature, and <code>value</code> is the value of the statistical 
+variable at that geographic area. The identifier <code>id_key</code> should have
+unique values across all features (example identifiers include:
+county names if each feature is a county, or state abbreviations if 
+each feature is a state).</p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>data_key_name:</strong>  String containing the name of the statistical 
+variable.</li>
+<li><strong>data:</strong>  A list containing lists of two elements <code>[id_value, value]</code>.</li>
+<li><strong>id_key:</strong>  String containing the name of the identifier.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="JsonScadBuilder.scale_heights" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#JsonScadBuilder.scale_heights">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">scale_heights</span><span class="signature">(self, domain, range)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">scale_heights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="nb">range</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Converts the bound data value for each feature into a height.</span>
+
+<span class="sd">        Converts the bound data value for each feature into an extrusion </span>
+<span class="sd">        height for OpenSCAD. This method scales the bound data values </span>
+<span class="sd">        linearly according to `domain` and `range`; it scales the minimum </span>
+<span class="sd">        value in `domain` to the minimum height in `range`, and scales the </span>
+<span class="sd">        maximum value  in `domain` to the maximum height in `range`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            domain: A list of two numerical elements `[min, max]`</span>
+<span class="sd">            range: A list of two numerical elements `[min, max]`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">domain_diff</span> <span class="o">=</span> <span class="n">domain</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">domain</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">range_diff</span> <span class="o">=</span> <span class="nb">range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nb">range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;bdata_nf&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Keep track of min and max scaled height</span>
+        <span class="c1"># Use range bounds as upper and lower bounds</span>
+        <span class="c1"># for min and max heights respectively</span>
+        <span class="c1"># Report to user once all heights have been scaled</span>
+        <span class="n">min_max_height</span> <span class="o">=</span> <span class="p">[</span><span class="nb">range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">range</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span> 
+            <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]):</span>
+                <span class="n">scaling_ratio</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">]</span> 
+                    <span class="o">-</span> <span class="n">domain</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">domain_diff</span>
+                <span class="n">scaled_height</span> <span class="o">=</span> <span class="nb">range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">scaling_ratio</span> <span class="o">*</span> <span class="n">range_diff</span><span class="p">)</span>
+                <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaled_height</span>
+                
+                <span class="c1"># Checking for new min and max scaled heights</span>
+                <span class="n">min_max_height</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">scaled_height</span><span class="p">,</span> <span class="n">min_max_height</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">min_max_height</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">scaled_height</span><span class="p">,</span> <span class="n">min_max_height</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_scle&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">min_max_height</span><span class="p">))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Converts the bound data value for each feature into a height.</p>
+
+<p>Converts the bound data value for each feature into an extrusion 
+height for OpenSCAD. This method scales the bound data values 
+linearly according to <code>domain</code> and <code>range</code>; it scales the minimum 
+value in <code>domain</code> to the minimum height in <code>range</code>, and scales the 
+maximum value  in <code>domain</code> to the maximum height in <code>range</code>.</p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>domain:</strong>  A list of two numerical elements <code>[min, max]</code></li>
+<li><strong>range:</strong>  A list of two numerical elements <code>[min, max]</code></li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="JsonScadBuilder.color_preview" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#JsonScadBuilder.color_preview">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">color_preview</span><span class="signature">(self)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">color_preview</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Turns on color preview mode.</span>
+
+<span class="sd">        If color preview mode is on, then `write_scad_file()` will assign </span>
+<span class="sd">        a random color to each feature. This allows for easy identification </span>
+<span class="sd">        of boundaries between geographic areas when viewing the generated </span>
+<span class="sd">        3D model in OpenSCAD.    </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_colored</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Turns on color preview mode.</p>
+
+<p>If color preview mode is on, then <code><a href="#JsonScadBuilder.write_scad_file">write_scad_file()</a></code> will assign 
+a random color to each feature. This allows for easy identification 
+of boundaries between geographic areas when viewing the generated 
+3D model in OpenSCAD.</p>
+</div>
+
+
+                            </div>
+                            <div id="JsonScadBuilder.write_scad_file" class="classattr">
+                                        <div class="attr function"><a class="headerlink" href="#JsonScadBuilder.write_scad_file">#&nbsp;&nbsp</a>
+
+        
+            <span class="def">def</span>
+            <span class="name">write_scad_file</span><span class="signature">(self, filepath)</span>:
+    </div>
+
+                <details>
+            <summary>View Source</summary>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">write_scad_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generates OpenSCAD code and writes it to a file.</span>
+
+<span class="sd">        Generates code that creates OpenSCAD polygons from each feature in </span>
+<span class="sd">        `features` and extrudes them to the height proportional to the bound </span>
+<span class="sd">        data value. If a bound data value does not exist for a feature, then </span>
+<span class="sd">        that feature is extruded to the default extrusion height, 2. This</span>
+<span class="sd">        method then writes the OpenSCAD code to a file, which should have a </span>
+<span class="sd">        .scad file extension. If the file specified by `filepath` does not </span>
+<span class="sd">        exist, this method creates the file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            filepath: String containing the path to the .scad file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Counter so that each list of points has a unique name</span>
+        <span class="c1"># points_0, points_1, ..., points_n where there are n-1 total polygons</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">debug_num_coords</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">error_msg</span><span class="p">[</span><span class="s1">&#39;emp_feat&#39;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+            <span class="c1"># Handle polygons </span>
+            <span class="k">if</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Polygon&quot;</span><span class="p">):</span>
+                <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;points_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;= &#39;</span>
+                <span class="c1"># index 0 contains exterior linear ring</span>
+                <span class="n">code</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;;</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_colored</span><span class="p">):</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;color(&quot;&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                        <span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">color_bank</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;&quot;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]):</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;linear_extrude(height=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                        <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;linear_extrude(height=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_EXTRUDE_HEIGHT</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span> 
+                
+                <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;offset(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;polygon(points_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;);</span><span class="se">\n</span><span class="s1">&#39;</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="c1"># Handle multipolygons, which store coordinate data</span>
+            <span class="c1"># one layer deeper than polygons</span>
+            <span class="k">elif</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;MultiPolygon&quot;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">polygon</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">][</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]:</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;points_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;= &#39;</span>
+                    <span class="c1"># index 0 contains exterior linear ring</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">polygon</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;;</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                    <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_colored</span><span class="p">):</span>
+                        <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;color(&quot;&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                            <span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">color_bank</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;&quot;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    
+                    <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> 
+                    <span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span> <span class="ow">in</span> <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]):</span>
+                        <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;linear_extrude(height=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                            <span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_data_key_name</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;linear_extrude(height=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_EXTRUDE_HEIGHT</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span> 
+
+                    <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                        <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;offset(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">offset_delta</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+                    <span class="n">code</span> <span class="o">+=</span> <span class="s1">&#39;polygon(points_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;);</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">char_out</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+            
+        <span class="nb">print</span><span class="p">(</span><span class="n">status_msg</span><span class="p">[</span><span class="s1">&#39;end_wrte&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">filepath</span> <span class="o">+</span> 
+        <span class="s2">&quot;, characters written: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">char_out</span><span class="p">))</span>
+</pre></div>
+
+        </details>
+
+            <div class="docstring"><p>Generates OpenSCAD code and writes it to a file.</p>
+
+<p>Generates code that creates OpenSCAD polygons from each feature in 
+<code>features</code> and extrudes them to the height proportional to the bound 
+data value. If a bound data value does not exist for a feature, then 
+that feature is extruded to the default extrusion height, 2. This
+method then writes the OpenSCAD code to a file, which should have a 
+.scad file extension. If the file specified by <code>filepath</code> does not 
+exist, this method creates the file.</p>
+
+<h6 id="args">Args</h6>
+
+<ul>
+<li><strong>filepath:</strong>  String containing the path to the .scad file.</li>
+</ul>
+</div>
+
+
+                            </div>
+                </section>
+    </main>
+</body>
+</html>
