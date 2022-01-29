@@ -59,9 +59,7 @@ bldr.write_scad_file('nj_populations.scad')
 ### Step-by-Step Guide
 This guide will explain the above `example.py` code. This guide will *not* provide a detailed description of all methods in the `JsonScadBuilder` class, nor will it include instructions on using OpenSCAD and slicer software to prepare the model for 3D printing.
 
-For detailed information on `JsonScadBuilder` methods, see:
-
-For a guide on the 3D printing process, see:
+For detailed information on `JsonScadBuilder` methods, see the [full API documentation.](https://ksunyan.github.io/projects/jsonscad_builder.html)
 
 #### 1. Import the `json_scadbuilder` module and create a new `JsonScadBuilder` object
 ```python
