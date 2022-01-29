@@ -7,6 +7,8 @@ The `jsonscad_builder.py` Python module provides programmers with methods for:
 * Adjusting 3D model parameters
 * Writing OpenSCAD code to a `.scad` file
 
+This guide contains basic information about the `jsonscad_builder.py` module. For details, see the [full API documentation.](https://ksunyan.github.io/projects/jsonscad_builder.html)
+
 **Note:** This guide assumes that you are comfortable with Python syntax (especially Python lists) and that you have at least a basic understanding of 3D printing and computer-aided design (CAD) concepts.
 
 ## Getting Started
