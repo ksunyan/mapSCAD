@@ -1,5 +1,5 @@
 # MapSCAD Project
-Build 3D printable choropleth maps from GeoJSON data. 
+Build 3D printable choropleth maps from GeoJSON data.
 
 The `jsonscad_builder.py` Python module provides programmers with methods for: 
 * Reading geographic data from GeoJSON files
@@ -8,6 +8,15 @@ The `jsonscad_builder.py` Python module provides programmers with methods for:
 * Writing OpenSCAD code to a `.scad` file
 
 This guide contains basic information about the `jsonscad_builder.py` module. For details, see the [full API documentation.](https://ksunyan.github.io/projects/jsonscad_builder.html)
+
+In this guide: 
+* [Getting Started](https://github.com/ksunyan/mapSCAD#getting-started)
+* [Example Code](https://github.com/ksunyan/mapSCAD#example-code)
+	* [Overview of example.py](https://github.com/ksunyan/mapSCAD#overview-of-examplepy)
+	* [Step-by-Step Guide](https://github.com/ksunyan/mapSCAD#step-by-step-guide)
+* [Known Issues](https://github.com/ksunyan/mapSCAD#known-issues)
+* [Project Rationale](https://github.com/ksunyan/mapSCAD#project-rationale)
+* [References](https://github.com/ksunyan/mapSCAD#references)
 
 **Note:** This guide assumes that you are comfortable with Python syntax (especially Python lists) and that you have at least a basic understanding of 3D printing and computer-aided design (CAD) concepts.
 
@@ -25,7 +34,7 @@ OpenSCAD is open-source software for creating solid 3D CAD models. Since OpenSCA
 See the [OpenSCAD User Manual](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual) for more information.
 
 ### Slicer Software and STL Viewers
-Since choice of slicer software for 3D printing largely depends on personal preference or compatibility with 3D printers, this guide will not address slicer software in detail. One popular slicer is [Ultimaker Cura](https://ultimaker.com/software/ultimaker-cura) (which was used in testing of this project). 
+Since your choice of slicer software for 3D printing largely depends on personal preference or compatibility with 3D printers, this guide will not address slicer software in detail. One popular slicer is [Ultimaker Cura](https://ultimaker.com/software/ultimaker-cura) (which was used in testing of this project). 
 
 Software for viewing `.stl` files may also be helpful. Free STL viewers are widely available online for download. 
 
@@ -69,13 +78,13 @@ import jsonscad_builder
 
 bldr = jsonscad_builder.JsonScadBuilder()
 ```
-In this example, the file `jsonscad_builder.py` is in the same directory as `example.py`. To create and initialize a new `JsonScadBuilder` object `bldr`, call its constructor. 
+In this example, the file `jsonscad_builder.py` is in the same directory as `example.py`. To create and initialize a new `JsonScadBuilder` object named `bldr`, call its constructor. 
 
 #### 2. Read GeoJSON data
 ```python
 bldr.read_json_file('County_Boundaries_of_NJ.geojson')
 ```
-In this example, the file `County_Boundaries_of_NJ.geojson` is in the same directory as `example.py`. The `read_json_file()` method takes the path to the file containing GeoJSON data as a parameter. If the method parses the file contents successfully, then the `bldr` object stores the data in an `OrderedDict`.
+In this example, the file `County_Boundaries_of_NJ.geojson` is in the same directory as `example.py`. The `read_json_file()` method takes the path to the file containing GeoJSON data as a parameter. If the method parses the file contents successfully, then `bldr` stores the data in an `OrderedDict`.
 
 **Note:** The specified file can be any `.read()`-supporting text file or binary file containing a GeoJSON `FeatureCollection`; conventional file extensions are `.geojson` and `.json`. See [RFC 7946](https://datatracker.ietf.org/doc/html/rfc7946) for GeoJSON format standards. 
 
@@ -83,13 +92,13 @@ In this example, the file `County_Boundaries_of_NJ.geojson` is in the same direc
 ```python
 bldr.extract_features()
 ```
-You *must* call the `.extract_features()` function. `extract_features()` looks up the `'features'` array in the `OrderedDict` containing GeoJSON data. If the stored GeoJSON data is a `FeatureCollection`, the `extract_features()` will generate no error messages. In this example, each GeoJSON feature represents a New Jersey county.    
+You *must* call the `.extract_features()` function. `extract_features()` looks up the `'features'` array in the `OrderedDict` containing GeoJSON data. If the stored GeoJSON data is a `FeatureCollection`, `extract_features()` will store the `'features'` array as a Python list. In this example, each GeoJSON feature represents a New Jersey county.    
 
 #### 4. Simplify
 ```python
 bldr.simplify()
 ``` 
-To reduce the number of points in the final 3D model, call the `simplify()` method. This method uses the Ramer-Douglas-Peucker (RDP) Algorithm to calculate which points to preserve in the simplified geometries. `simplify()` has one optional parameter `eps`, which is the epsilon value in the RDP Algorithm. 
+To reduce the number of points in the final 3D model, call the `simplify()` method. This method uses the Ramer-Douglas-Peucker (RDP) Algorithm to calculate which points to preserve in the simplified geometries. `simplify()` has one optional parameter `eps`, which is the [epsilon value in the RDP Algorithm.](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm#Algorithm) 
 
 
 #### 5. Bind statistical data to GeoJSON features
@@ -106,13 +115,13 @@ bldr.transform([-76.0, 38.6], 50)
 ````
 In this example, the `transform()` method:
 * Sets the coordinate `[-76.0, 38.6]` (Longitude: 76.0 W, Latitude: 38.6 N) as the origin (`[0,0,0]` in the OpenSCAD coordinate system) for the 3D model. 
-* Scales the geometries to a reasonable size. Since the geographic area covered by the GeoJSON data is small (roughly 2.4 degrees of latitude), `transform()` multiplies the distances between points by the parameter `scale_factor`.
+* Scales the geometries to a reasonable size. Since the geographic area that the GeoJSON data covers is small (roughly 2.4 degrees of latitude in this example), `transform()` multiplies the distances between points by the parameter `scale_factor`.
 
 #### 7. Eliminate gaps between features using `offset()`
 ```python
 bldr.offset(0.2)
 ```
-The positive `offset_data` value signals `write_scad_file()` to draw all polygon geometries in OpenSCAD with sides offset by `offset_delta` from the original polygon geometries stored in `features`. Thus, in the OpenSCAD model, features will overlap by a small amount. These overlaps are good because they eliminate unwanted gaps between features.
+The positive `offset_data` value signals `write_scad_file()` (see Step 9) to draw all polygon geometries in OpenSCAD with sides offset by `offset_delta` from the original polygon geometries stored in `features`. Thus, in the OpenSCAD model, features will overlap by a small amount. These overlaps are good because they eliminate unwanted gaps between features. Gaps lead to problems when OpenSCAD renders the final 3D model. 
 
 #### 8. Scale extrusion heights using `scale_heights()`
 ```python
@@ -136,7 +145,7 @@ These messages indicate that the model contains one or more bad faces. I will ne
 ## Project Rationale
 Data visualization is powerful — it gives viewers the power to understand, analyze, or simply enjoy data. Conventional data visualization methods are confined to a flat surface, be it a monitor or a piece of paper. In a typical choropleth map, each geographical area's color depends on that area's value for some statistical variable that the map visualizes.
 
-According to (Munzner, 2014), 3D-choropleth maps typically have a number of issues:
+According to (Munzner, 2014), displaying 3D-choropleth maps on a flat surface typically results in a number of issues:
 * Human length perception ability is accurate only for planar spatial position. Our ability to perceive depth is not nearly as accurate.
 * Some 3D visualizations occlude important information. For instance, a particularly tall feature can prevent a viewer from seeing shorter features behind it.
 * Perspective distortion (closer items appear larger, farther items appear smaller) makes comparing heights of features difficult. 
@@ -144,7 +153,7 @@ According to (Munzner, 2014), 3D-choropleth maps typically have a number of issu
 
 However, these problems are the result of displaying 3D models in 2D space. On the contrary, the viewer of a tangible 3D model can quickly manipulate it, adjusting their view as they want. Thus, perspective distortion and occlusion are no longer significant problems. Lighting in the viewer's surroundings also casts natural shadows on and around the physical model.
 
-3D printing technology enables creators of data visualizations to craft eye-catching pieces. A single 3D printed choropleth map, sitting on a desk, shelf, or windowsill, can prompt many meaningful discussions of its data. 
+3D printing technology enables creators of data visualizations to craft eye-catching pieces. A single 3D printed choropleth map, sitting on a desk, shelf, or windowsill, can prompt many meaningful discussions of the data it represents. 
 
 The goal of the MapSCAD project is to spark many of these conversations!
 
