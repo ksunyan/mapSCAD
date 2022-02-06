@@ -172,7 +172,7 @@ class JsonScadBuilder:
                 for polygon in feature['geometry']['coordinates']:
                     # index 0 contains exterior linear ring
                     coords = polygon[0]
-                    polygon[0] = list(map(self.transform_helper, coords))
+                    polygon[0] = list(map(self._transform_helper, coords))
 
         print(status_msg['end_tsfm']) 
 
